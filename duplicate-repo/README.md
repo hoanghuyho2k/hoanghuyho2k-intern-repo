@@ -1,1 +1,1 @@
-Conflict test line (MAIN)
+Line from FEATURE branch
