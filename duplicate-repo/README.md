@@ -1,1 +1,1 @@
-Line from MAIN branch
+Conflict resolved: kept a combined final line.
