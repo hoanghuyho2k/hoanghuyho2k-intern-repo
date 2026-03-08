@@ -63,3 +63,5 @@ git bisect is much faster and more efficient than manually reviewing commits one
 ### What surprised you while testing these commands?
 What surprised me most was how targeted these commands are. Instead of merging or reverting large sets of changes, Git allows developers to restore one file, copy one commit, inspect history clearly, and trace changes line by line, which is very useful in large team projects.
 
+
+## Staging vs Commiting Experiment
