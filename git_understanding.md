@@ -10,3 +10,4 @@ I opened the conflicted file, reviewed the “current” (main) and “incoming�
 - Merge conflicts happen when two branches modify the same lines/sections.
 - Git requires manual resolution when it cannot safely auto-merge.
 - After resolving, you must stage the file and commit to complete the merge.
+
