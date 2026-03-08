@@ -64,4 +64,13 @@ git bisect is much faster and more efficient than manually reviewing commits one
 What surprised me most was how targeted these commands are. Instead of merging or reverting large sets of changes, Git allows developers to restore one file, copy one commit, inspect history clearly, and trace changes line by line, which is very useful in large team projects.
 
 
-## Staging vs Commiting Experiment
+## Git Concepts: Staging vs Committing
+
+### What is the difference between staging and committing?
+Staging is the process of selecting which changes will be included in the next commit, while committing saves those staged changes permanently to the repository history.
+
+### Why does Git separate these two steps?
+Git separates staging and committing so developers can carefully choose which changes should be included in a commit. This helps keep commits clean, meaningful, and organized.
+
+### When would you want to stage changes without committing?
+You might stage changes without committing when you are preparing multiple edits but want to group them into logical commits. Staging allows you to review and organize the exact changes that will be recorded before creating the commit.
