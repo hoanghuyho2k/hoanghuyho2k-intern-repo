@@ -1,2 +1,3 @@
 Test commit example
 Another test line
+Final commit example
