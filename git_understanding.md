@@ -22,6 +22,7 @@ A well-structured PR should have a clear title, a short explanation of what chan
 ### What did you learn from reviewing an open-source PR?
 From reviewing an open-source PR, I learned that good code review is not only about checking whether code works, but also about readability, maintainability, and clear communication. I also noticed that reviewers often give specific, constructive feedback and contributors respond by updating the code or explaining their decisions.
 
+<<<<<<< HEAD
 ## Writing Meaningful Commit Messages
 
 ### What makes a good commit message?
@@ -43,3 +44,22 @@ I would use git bisect when a project worked correctly before, but now has a bug
 
 ### How does it compare to manually reviewing commits?
 git bisect is much faster and more efficient than manually reviewing commits one by one because it reduces the number of commits that need to be tested. Manual review can still be useful for understanding the code, but git bisect is better for quickly locating the exact commit that introduced the problem.
+=======
+
+## Advanced Git Commands
+
+### What does each command do?
+- `git checkout main -- <file>` restores a specific file from the `main` branch without changing other files.
+- `git cherry-pick <commit>` applies one specific commit from another branch onto the current branch.
+- `git log` shows the history of commits and how the project changed over time.
+- `git blame <file>` shows which commit last modified each line of a file.
+
+### When would you use it in a real project?
+- I would use `git checkout main -- <file>` when one file has unwanted local changes and I want to restore only that file.
+- I would use `git cherry-pick` when I need one useful fix from another branch but do not want to merge the entire branch.
+- I would use `git log` to understand project history, investigate when changes happened, or review branch activity.
+- I would use `git blame` when debugging or when I need to understand who changed a line and why.
+
+### What surprised you while testing these commands?
+What surprised me most was how targeted these commands are. Instead of merging or reverting large sets of changes, Git allows developers to restore one file, copy one commit, inspect history clearly, and trace changes line by line, which is very useful in large team projects.
+>>>>>>> 12f51f4 (Add advanced Git command practice and reflections)
