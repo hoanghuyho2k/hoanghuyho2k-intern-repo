@@ -22,7 +22,7 @@ A well-structured PR should have a clear title, a short explanation of what chan
 ### What did you learn from reviewing an open-source PR?
 From reviewing an open-source PR, I learned that good code review is not only about checking whether code works, but also about readability, maintainability, and clear communication. I also noticed that reviewers often give specific, constructive feedback and contributors respond by updating the code or explaining their decisions.
 
-<<<<<<< HEAD
+
 ## Writing Meaningful Commit Messages
 
 ### What makes a good commit message?
@@ -44,7 +44,7 @@ I would use git bisect when a project worked correctly before, but now has a bug
 
 ### How does it compare to manually reviewing commits?
 git bisect is much faster and more efficient than manually reviewing commits one by one because it reduces the number of commits that need to be tested. Manual review can still be useful for understanding the code, but git bisect is better for quickly locating the exact commit that introduced the problem.
-=======
+
 
 ## Advanced Git Commands
 
@@ -62,4 +62,4 @@ git bisect is much faster and more efficient than manually reviewing commits one
 
 ### What surprised you while testing these commands?
 What surprised me most was how targeted these commands are. Instead of merging or reverting large sets of changes, Git allows developers to restore one file, copy one commit, inspect history clearly, and trace changes line by line, which is very useful in large team projects.
->>>>>>> 12f51f4 (Add advanced Git command practice and reflections)
+
