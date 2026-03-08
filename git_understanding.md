@@ -32,3 +32,14 @@ Clear commit messages help team members understand what changes were introduced 
 
 ### How can poor commit messages cause issues later?
 Poor commit messages such as "fix" or "update" do not explain what was changed. This can make it difficult for developers to understand the history of the project, identify when bugs were introduced, or track the purpose of specific changes.
+
+## Debugging with git bisect
+
+### What does git bisect do?
+git bisect helps identify which commit introduced a bug by using a binary search through the commit history. Instead of checking every commit manually, it narrows the search range step by step until it finds the first bad commit.
+
+### When would you use it in a real-world debugging situation?
+I would use git bisect when a project worked correctly before, but now has a bug and I do not know which commit caused it. It is especially useful when there are many commits and manually checking each one would take too much time.
+
+### How does it compare to manually reviewing commits?
+git bisect is much faster and more efficient than manually reviewing commits one by one because it reduces the number of commits that need to be tested. Manual review can still be useful for understanding the code, but git bisect is better for quickly locating the exact commit that introduced the problem.
