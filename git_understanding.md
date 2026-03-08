@@ -63,3 +63,13 @@ git bisect is much faster and more efficient than manually reviewing commits one
 ### What surprised you while testing these commands?
 What surprised me most was how targeted these commands are. Instead of merging or reverting large sets of changes, Git allows developers to restore one file, copy one commit, inspect history clearly, and trace changes line by line, which is very useful in large team projects.
 
+## Branching & Team Collaboration
+
+### Why is pushing directly to main problematic?
+Pushing directly to main is problematic because it can introduce bugs or incomplete work into the main codebase without review. It also makes collaboration riskier because there is less opportunity to catch mistakes before changes affect everyone.
+
+### How do branches help with reviewing code?
+Branches allow developers to work on changes separately from the stable main branch. This makes it easier to open pull requests, review code, discuss improvements, and test changes before merging them.
+
+### What happens if two people edit the same file on different branches?
+If two people edit the same file on different branches, Git may produce a merge conflict when the branches are merged. The conflict must then be resolved manually by deciding which changes to keep or how to combine them.
