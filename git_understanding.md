@@ -63,7 +63,6 @@ git bisect is much faster and more efficient than manually reviewing commits one
 ### What surprised you while testing these commands?
 What surprised me most was how targeted these commands are. Instead of merging or reverting large sets of changes, Git allows developers to restore one file, copy one commit, inspect history clearly, and trace changes line by line, which is very useful in large team projects.
 
-<<<<<<< HEAD
 ## Branching & Team Collaboration
 
 ### Why is pushing directly to main problematic?
@@ -74,7 +73,7 @@ Branches allow developers to work on changes separately from the stable main bra
 
 ### What happens if two people edit the same file on different branches?
 If two people edit the same file on different branches, Git may produce a merge conflict when the branches are merged. The conflict must then be resolved manually by deciding which changes to keep or how to combine them.
-=======
+
 ## Git Concepts: Staging vs Committing
 
 ### What is the difference between staging and committing?
@@ -85,4 +84,3 @@ Git separates staging and committing so developers can carefully choose which ch
 
 ### When would you want to stage changes without committing?
 You might stage changes without committing when you are preparing multiple edits but want to group them into logical commits. Staging allows you to review and organize the exact changes that will be recorded before creating the commit.
->>>>>>> 8c0d5b8 (Adding reflections for staging & committing)
