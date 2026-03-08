@@ -10,3 +10,14 @@ I opened the conflicted file, reviewed the “current” (main) and “incoming�
 - Merge conflicts happen when two branches modify the same lines/sections.
 - Git requires manual resolution when it cannot safely auto-merge.
 - After resolving, you must stage the file and commit to complete the merge.
+
+## Pull Requests (PRs)
+
+### Why are PRs important in a team workflow?
+Pull requests are important because they give team members a structured way to review, discuss, and improve changes before merging them into the main branch. They help maintain code quality, reduce mistakes, and make collaboration more transparent.
+
+### What makes a well-structured PR?
+A well-structured PR should have a clear title, a short explanation of what changed and why, and only include focused changes that are easy to review. It is also helpful to link the PR to a related issue and provide enough context for reviewers.
+
+### What did you learn from reviewing an open-source PR?
+From reviewing an open-source PR, I learned that good code review is not only about checking whether code works, but also about readability, maintainability, and clear communication. I also noticed that reviewers often give specific, constructive feedback and contributors respond by updating the code or explaining their decisions.
