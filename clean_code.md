@@ -48,3 +48,58 @@ The cleaner version is easier to understand because it uses descriptive names, c
 
 ## Reflection
 Clean code matters in real-world development because software is maintained by teams over long periods of time. Code that is simple, readable, maintainable, consistent, and efficient is easier to review, debug, and improve. Writing clean code is not only about making the program work, but also about making it easier for people to understand and work with in the future.
+
+# Naming Variables & Functions
+
+## Best Practices for Naming Variables and Functions
+
+Clear naming is an important part of clean code because names are the first thing developers read when trying to understand code.
+
+Good naming practices include:
+- Use descriptive and meaningful names.
+- Avoid vague abbreviations unless they are very common and obvious.
+- Use names that explain the purpose of the variable or function.
+- Keep naming consistent with the project style.
+- Use function names that describe an action.
+- Use variable names that describe the data they store.
+
+For example, `calculateTotalPrice()` is much clearer than `doCalc()`, and `userEmail` is much clearer than `x` or `data1`.
+
+## Example of Unclear Naming
+
+### Unclear Code
+```javascript
+function a(x, y) {
+  let z = x * y;
+  return z;
+}
+
+let d = a(5, 10);
+console.log(d);
+```
+This code is difficult to understand because the function name a does not explain what the function does, and the variable names x, y, z, and d do not describe their purpose. A developer reading this code has to guess the meaning of each value instead of understanding it immediately.
+
+### Refactored code
+```javascript
+function calculateArea(width, height) {
+  const area = width * height;
+  return area;
+}
+
+const rectangleArea = calculateArea(5, 10);
+console.log(rectangleArea);
+```
+The refactored version is easier to read because the names clearly describe the purpose of the function and variables. calculateArea explains the function’s action, while width, height, area, and rectangleArea make the data much easier to understand.
+
+## Reflection
+### What makes a good variable or function name?
+
+A good variable or function name is descriptive, clear, and easy for another developer to understand. It should communicate purpose without needing extra explanation.
+
+### What issues can arise from poorly named variables?
+
+Poorly named variables can make code confusing, increase the chance of mistakes, slow down debugging, and make maintenance harder for both the original developer and future team members.
+
+### How did refactoring improve code readability?
+
+Refactoring improved readability by replacing vague names with meaningful ones, making the code easier to understand at a glance and reducing the need to guess what the code is doing.
