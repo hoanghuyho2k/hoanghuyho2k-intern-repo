@@ -17,7 +17,7 @@ Consistency means following the same naming conventions, formatting style, file 
 ## 5. Efficiency
 Efficiency means writing code that performs well enough for the problem being solved, while avoiding unnecessary complexity. It is important to think about performance, but clean code also avoids premature optimization that makes code harder to understand without a clear benefit.
 
-## Example of Messy Code
+# Example of Messy Code
 
 ### Messy Code
 ```Javascript
@@ -65,7 +65,7 @@ Good naming practices include:
 
 For example, `calculateTotalPrice()` is much clearer than `doCalc()`, and `userEmail` is much clearer than `x` or `data1`.
 
-## Example of Unclear Naming
+# Example of Unclear Naming
 
 ### Unclear Code
 ```javascript
@@ -104,7 +104,7 @@ Poorly named variables can make code confusing, increase the chance of mistakes,
 
 Refactoring improved readability by replacing vague names with meaningful ones, making the code easier to understand at a glance and reducing the need to guess what the code is doing.
 
-## Writing Small, Focused Functions
+# Writing Small, Focused Functions
 
 ### Best Practices
 Small, focused functions are easier to read, test, and maintain because each function has a single clear responsibility. A good function should do one thing, have a clear name, and avoid mixing unrelated logic in one place.
@@ -200,3 +200,51 @@ Breaking down functions is beneficial because it makes code easier to understand
 ### How did refactoring improve the structure of the code?
 
 Refactoring improved the structure by separating validation, calculation, discount handling, and shipping logic into individual functions. This made the code more modular, easier to read, and easier to change in the future.
+
+# Avoiding Code Duplication
+
+### The DRY Principle
+The "Don't Repeat Yourself" (DRY) principle means that the same logic should not be repeated in multiple places in a codebase. When code is duplicated, any future update must be made in every repeated section, which increases the risk of bugs and inconsistency.
+
+### Example of Duplicated Code
+
+```javascript
+function printAdmin(user) {
+  console.log("Name:", user.name);
+  console.log("Email:", user.email);
+  console.log("Role: Admin");
+}
+
+function printCustomer(user) {
+  console.log("Name:", user.name);
+  console.log("Email:", user.email);
+  console.log("Role: Customer");
+}
+```
+This code repeats the same logic for printing the user's name and email. The only real difference is the role. If the output format needs to change later, both functions would need to be updated, which makes maintenance harder and increases the chance of mistakes.
+
+### Refactored version
+```javascript
+function printUser(user, role) {
+  console.log("Name:", user.name);
+  console.log("Email:", user.email);
+  console.log(`Role: ${role}`);
+}
+
+function printAdmin(user) {
+  printUser(user, "Admin");
+}
+
+function printCustomer(user) {
+  printUser(user, "Customer");
+}
+```
+
+## Reflection
+### What were the issues with duplicated code?
+
+Duplicated code makes maintenance more difficult because the same change has to be made in multiple places. It also increases the chance of inconsistency if one section is updated but another is forgotten.
+
+### How did refactoring improve maintainability?
+
+Refactoring improved maintainability by moving the shared logic into a single reusable function. This makes the code easier to update, reduces repetition, and keeps the structure cleaner.
