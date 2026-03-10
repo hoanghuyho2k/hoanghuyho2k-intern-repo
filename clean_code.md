@@ -103,3 +103,100 @@ Poorly named variables can make code confusing, increase the chance of mistakes,
 ### How did refactoring improve code readability?
 
 Refactoring improved readability by replacing vague names with meaningful ones, making the code easier to understand at a glance and reducing the need to guess what the code is doing.
+
+## Writing Small, Focused Functions
+
+### Best Practices
+Small, focused functions are easier to read, test, and maintain because each function has a single clear responsibility. A good function should do one thing, have a clear name, and avoid mixing unrelated logic in one place.
+
+### Example of a Long, Complex Function
+
+```javascript
+function processOrder(order) {
+  if (!order) {
+    console.log("Invalid order");
+    return;
+  }
+
+  if (!order.items || order.items.length === 0) {
+    console.log("No items in order");
+    return;
+  }
+
+  let total = 0;
+
+  for (let i = 0; i < order.items.length; i++) {
+    total += order.items[i].price * order.items[i].quantity;
+  }
+
+  if (order.discount) {
+    total = total - total * order.discount;
+  }
+
+  if (total > 100) {
+    console.log("Free shipping applied");
+  } else {
+    console.log("Shipping fee applies");
+  }
+
+  console.log("Customer:", order.customerName);
+  console.log("Total:", total);
+}
+```
+This function does too many things at once: it validates the order, calculates the total, applies a discount, decides shipping, and prints output. Because all responsibilities are combined into one function, the code is harder to read, test, and modify.
+
+### Refactored function
+```javascript
+function isValidOrder(order) {
+  return order && order.items && order.items.length > 0;
+}
+
+function calculateOrderTotal(items) {
+  let total = 0;
+
+  for (let i = 0; i < items.length; i++) {
+    total += items[i].price * items[i].quantity;
+  }
+
+  return total;
+}
+
+function applyDiscount(total, discount) {
+  if (!discount) {
+    return total;
+  }
+
+  return total - total * discount;
+}
+
+function getShippingMessage(total) {
+  if (total > 100) {
+    return "Free shipping applied";
+  }
+
+  return "Shipping fee applies";
+}
+
+function processOrder(order) {
+  if (!isValidOrder(order)) {
+    console.log("Invalid order");
+    return;
+  }
+
+  let total = calculateOrderTotal(order.items);
+  total = applyDiscount(total, order.discount);
+
+  console.log(getShippingMessage(total));
+  console.log("Customer:", order.customerName);
+  console.log("Total:", total);
+}
+```
+
+## Reflection
+### Why is breaking down functions beneficial?
+
+Breaking down functions is beneficial because it makes code easier to understand, test, reuse, and maintain. Smaller functions also reduce complexity and make debugging easier because each function has a clear purpose.
+
+### How did refactoring improve the structure of the code?
+
+Refactoring improved the structure by separating validation, calculation, discount handling, and shipping logic into individual functions. This made the code more modular, easier to read, and easier to change in the future.
