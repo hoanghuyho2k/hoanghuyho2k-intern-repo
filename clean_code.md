@@ -248,3 +248,47 @@ Duplicated code makes maintenance more difficult because the same change has to 
 ### How did refactoring improve maintainability?
 
 Refactoring improved maintainability by moving the shared logic into a single reusable function. This makes the code easier to update, reduces repetition, and keeps the structure cleaner.
+
+# Commenting & Documentation
+
+### Best Practices
+Comments and documentation should make the code easier to understand, not harder. Good comments explain the reason behind a decision, important context, assumptions, edge cases, or warnings that are not obvious from reading the code itself.
+
+### Example of Poorly Commented Code
+
+```javascript
+// set x to 5
+const x = 5;
+
+// loop through users
+for (let i = 0; i < users.length; i++) {
+  // check if active
+  if (users[i].active) {
+    // print name
+    console.log(users[i].name);
+  }
+}
+```
+These comments are not useful because they only repeat what the code already clearly shows. They add noise instead of providing helpful context.
+
+### Improved version
+```javascript
+// Only display active users because inactive accounts should not appear in the admin report.
+const maxLoginAttempts = 5;
+
+for (let i = 0; i < users.length; i++) {
+  if (users[i].active) {
+    console.log(users[i].name);
+  }
+}
+```
+The improved comment explains why the logic exists instead of repeating what the code is doing. This gives future developers useful context that might not be obvious from the code alone.
+
+## Reflection
+### When should you add comments?
+
+Comments should be added when code needs extra context, such as explaining why a decision was made, describing assumptions, warning about tricky behavior, or documenting important business rules.
+
+### When should you avoid comments and instead improve the code?
+
+Comments should be avoided when they only restate obvious code. In those cases, it is better to improve variable names, function names, or code structure so the code becomes self-explanatory.
