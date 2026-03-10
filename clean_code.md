@@ -22,10 +22,12 @@ Efficiency means writing code that performs well enough for the problem being so
 ### Messy Code
 ```Javascript
 function p(a,b,c){if(a>0){if(b==true){if(c!=null){console.log("User: "+c.name+" Score: "+a)}}}}
-
+```
 This code is difficult to read because it uses unclear variable names, multiple nested conditions, inconsistent comparison operators, and no spacing or structure. It is hard to understand what the function is trying to do, and future developers would need extra time to work out the logic.
 
-Cleaner version
+
+### Cleaner version
+```Javascript
 function printUserScore(score, isActive, user) {
   if (score <= 0) {
     return;
@@ -41,7 +43,7 @@ function printUserScore(score, isActive, user) {
 
   console.log(`User: ${user.name} Score: ${score}`);
 }
-
+```
 The cleaner version is easier to understand because it uses descriptive names, clear formatting, and simpler control flow. The early returns reduce nesting, and the purpose of the function is more obvious at a glance.
 
 ## Reflection
