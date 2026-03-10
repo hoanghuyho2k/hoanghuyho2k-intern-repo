@@ -602,3 +602,64 @@ Refactoring improved the code by replacing hardcoded values with constants, brea
 ### How can avoiding code smells make future debugging easier?
 
 Avoiding code smells makes debugging easier because the code becomes more structured and predictable. When logic is clear and responsibilities are separated, it is easier to locate problems, test individual parts, and make changes without accidentally breaking other parts of the system.
+
+# Writing Unit Tests for Clean Code
+
+### Why unit testing is important
+Unit tests help developers verify that small pieces of code behave as expected. They make code safer to change because problems can be detected quickly when new changes break existing functionality.
+
+### Testing Framework Chosen
+For this task, I used **Jest**, which is a popular JavaScript testing framework.
+
+### Example Function
+```javascript
+function calculateAverage(numbers) {
+  if (!Array.isArray(numbers)) {
+    throw new TypeError("numbers must be an array");
+  }
+
+  if (numbers.length === 0) {
+    throw new Error("numbers array must not be empty");
+  }
+
+  for (const value of numbers) {
+    if (typeof value !== "number" || Number.isNaN(value)) {
+      throw new TypeError("all items in numbers must be valid numbers");
+    }
+  }
+
+  let total = 0;
+
+  for (const value of numbers) {
+    total += value;
+  }
+
+  return total / numbers.length;
+}
+
+module.exports = calculateAverage;
+```
+### Example Unit Tests
+``` javascript
+const calculateAverage = require("./calculateAverage");
+
+test("returns the average of valid numbers", () => {
+  expect(calculateAverage([2, 4, 6])).toBe(4);
+});
+
+test("throws an error for an empty array", () => {
+  expect(() => calculateAverage([])).toThrow("numbers array must not be empty");
+});
+
+test("throws an error for invalid input", () => {
+  expect(() => calculateAverage("not an array")).toThrow("numbers must be an array");
+});
+```
+## Reflection 
+### How do unit tests help keep code clean?
+
+Unit tests help keep code clean because they encourage smaller, focused, and predictable functions that are easier to test. They also make refactoring safer because developers can quickly check whether the behavior of the code is still correct.
+
+### What issues did you find while testing?
+
+While testing, I found that functions need clear input validation and predictable behavior to be tested properly. This showed me that writing tests can reveal missing error handling and edge cases that might otherwise be overlooked.
