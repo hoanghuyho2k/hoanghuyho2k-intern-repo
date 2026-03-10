@@ -292,3 +292,68 @@ Comments should be added when code needs extra context, such as explaining why a
 ### When should you avoid comments and instead improve the code?
 
 Comments should be avoided when they only restate obvious code. In those cases, it is better to improve variable names, function names, or code structure so the code becomes self-explanatory.
+
+# Handling Errors & Edge Cases
+
+### Best Practices
+Reliable code should not assume that input is always valid. Good error handling checks inputs early, uses guard clauses to exit invalid cases quickly, and returns or throws clear errors when something goes wrong.
+
+### Example of Weak Error Handling
+
+```javascript
+function calculateAverage(numbers) {
+  let total = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    total += numbers[i];
+  }
+
+  return total / numbers.length;
+}
+```
+This function assumes that:
+
+numbers always exists
+
+numbers is always an array
+
+the array is never empty
+
+every value is a valid number
+
+If any of these assumptions are wrong, the function may return incorrect results such as NaN, divide by zero, or fail at runtime.
+
+### Refactored version with Guard Clauses
+```javascript
+function calculateAverage(numbers) {
+  if (!Array.isArray(numbers)) {
+    throw new TypeError("numbers must be an array");
+  }
+
+  if (numbers.length === 0) {
+    throw new Error("numbers array must not be empty");
+  }
+
+  for (const value of numbers) {
+    if (typeof value !== "number" || Number.isNaN(value)) {
+      throw new TypeError("all items in numbers must be valid numbers");
+    }
+  }
+
+  let total = 0;
+
+  for (const value of numbers) {
+    total += value;
+  }
+
+  return total / numbers.length;
+}
+```
+## Reflection
+### What was the issue with the original code?
+
+The original code did not validate inputs or handle edge cases such as missing data, empty arrays, or invalid values. Because of that, it could fail silently or return incorrect results.
+
+### How does handling errors improve reliability?
+
+Handling errors improves reliability by making invalid inputs fail clearly and predictably instead of causing hidden bugs or confusing output. Guard clauses also make the code easier to read because invalid cases are handled early and the main logic stays simple.
