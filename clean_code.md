@@ -430,3 +430,175 @@ The original code was complex because it used unnecessary nesting and repeated a
 ### How did refactoring improve it?
 
 Refactoring improved the code by using guard clauses and simpler conditions, which made the function shorter, easier to read, and easier to maintain.
+
+# Identifying & Fixing Code Smells
+
+## Common Code Smells
+
+Code smells are warning signs in code that suggest poor design, low readability, or maintainability problems. They do not always mean the code is broken, but they often indicate that refactoring is needed.
+
+Common code smells include:
+- Magic Numbers & Strings
+- Long Functions
+- Duplicate Code
+- Large Classes (God Objects)
+- Deeply Nested Conditionals
+- Commented-Out Code
+- Inconsistent Naming
+
+---
+
+## Example of Code Smells
+
+```javascript
+class AppManager {
+  constructor() {
+    this.users = [];
+    this.orders = [];
+  }
+
+  addUser(u) {
+    this.users.push(u);
+  }
+
+  processOrder(order) {
+    if (order.status === "NEW") {
+      if (order.total > 100) {
+        if (order.customerType === "VIP") {
+          console.log("Apply VIP discount");
+        } else {
+          console.log("Apply standard discount");
+        }
+      } else {
+        console.log("No discount");
+      }
+    }
+
+    console.log("Saving order...");
+    this.orders.push(order);
+  }
+
+  printAdmin(user) {
+    console.log("Name:", user.name);
+    console.log("Email:", user.email);
+    console.log("Role: Admin");
+  }
+
+  printCustomer(user) {
+    console.log("Name:", user.name);
+    console.log("Email:", user.email);
+    console.log("Role: Customer");
+  }
+}
+
+// let temp = 123;
+// console.log("old code here");
+
+function calc(a, b) {
+  return a * b * 0.15 + 99;
+}
+```
+Problems in the Original Code
+1. Magic Numbers & Strings
+
+- `"NEW"`
+
+- `100`
+
+- `0.15`
+
+- `99`
+
+These values are hardcoded, so their meaning is unclear.
+
+2. Long Function
+
+`processOrder()` handles multiple responsibilities such as checking discounts, printing messages, and saving orders.
+
+3. Duplicate Code
+
+`printAdmin()` and `printCustomer()` repeat the same logic.
+
+4. Large Class (God Object)
+
+`AppManager` handles users, orders, and printing responsibilities all in one class.
+
+5. Deeply Nested Conditionals
+
+The discount logic inside `processOrder()` uses multiple nested `if` statements, making it difficult to read.
+
+6. Commented-Out Code
+
+The old unused code adds clutter and should be removed.
+
+7. Inconsistent Naming
+
+Names like `u`, `a`, `b`, and `calc` are unclear and do not describe their purpose.
+
+### Refactored version
+```javascript
+const ORDER_STATUS_NEW = "NEW";
+const DISCOUNT_THRESHOLD = 100;
+const TAX_RATE = 0.15;
+const SHIPPING_FEE = 99;
+
+function calculateTotalWithExtras(price, quantity) {
+  return price * quantity * TAX_RATE + SHIPPING_FEE;
+}
+
+function getDiscountMessage(order) {
+  if (order.status !== ORDER_STATUS_NEW) {
+    return "Order is not new";
+  }
+
+  if (order.total <= DISCOUNT_THRESHOLD) {
+    return "No discount";
+  }
+
+  if (order.customerType === "VIP") {
+    return "Apply VIP discount";
+  }
+
+  return "Apply standard discount";
+}
+
+function printUser(user, role) {
+  console.log("Name:", user.name);
+  console.log("Email:", user.email);
+  console.log(`Role: ${role}`);
+}
+
+class UserManager {
+  constructor() {
+    this.users = [];
+  }
+
+  addUser(user) {
+    this.users.push(user);
+  }
+}
+
+class OrderManager {
+  constructor() {
+    this.orders = [];
+  }
+
+  processOrder(order) {
+    console.log(getDiscountMessage(order));
+    console.log("Saving order...");
+    this.orders.push(order);
+  }
+}
+```
+## Reflection
+### What code smells did you find in your code?
+
+The code contained several code smells, including magic numbers and strings, a long function, duplicate code, a large class with too many responsibilities, deeply nested conditionals, commented-out code, and inconsistent naming.
+
+### How did refactoring improve the readability and maintainability of the code?
+
+Refactoring improved the code by replacing hardcoded values with constants, breaking responsibilities into smaller functions and classes, removing duplicate logic, simplifying conditionals, and using clearer names. This made the code easier to read, understand, and update.
+
+### How can avoiding code smells make future debugging easier?
+
+Avoiding code smells makes debugging easier because the code becomes more structured and predictable. When logic is clear and responsibilities are separated, it is easier to locate problems, test individual parts, and make changes without accidentally breaking other parts of the system.
