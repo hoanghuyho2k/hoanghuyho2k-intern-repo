@@ -1,33 +1,39 @@
+// ...existing code...
 # Understanding Clean Code Principles
 
 Clean code is important because software is rarely written once and never touched again. In real projects, code is read, debugged, extended, and reviewed by many people over time, so code quality affects both development speed and long-term maintainability.
 
 ## 1. Simplicity
+
 Simplicity means solving a problem in the clearest and least complicated way possible. Simple code is easier to read, test, and modify, and it reduces the chance of bugs caused by unnecessary logic or over-engineering.
 
 ## 2. Readability
+
 Readability means code should be easy for other developers to understand. Clear naming, logical structure, consistent formatting, and small focused functions all improve readability. Readable code is written for the next person who will maintain it, not just for the original author.
 
 ## 3. Maintainability
+
 Maintainability means the code can be updated, fixed, or extended without causing unnecessary difficulty. Code becomes more maintainable when it is modular, well-organized, and avoids duplication, because future developers can understand and change it more safely.
 
 ## 4. Consistency
+
 Consistency means following the same naming conventions, formatting style, file organization, and coding patterns across the project. Consistent code helps developers move through a codebase more easily because similar problems are solved in similar ways.
 
 ## 5. Efficiency
+
 Efficiency means writing code that performs well enough for the problem being solved, while avoiding unnecessary complexity. It is important to think about performance, but clean code also avoids premature optimization that makes code harder to understand without a clear benefit.
 
 # Example of Messy Code
 
 ## Messy Code
-```Javascript
+```javascript
 function p(a,b,c){if(a>0){if(b==true){if(c!=null){console.log("User: "+c.name+" Score: "+a)}}}}
 ```
+
 This code is difficult to read because it uses unclear variable names, multiple nested conditions, inconsistent comparison operators, and no spacing or structure. It is hard to understand what the function is trying to do, and future developers would need extra time to work out the logic.
 
-
 ## Cleaner version
-```Javascript
+```javascript
 function printUserScore(score, isActive, user) {
   if (score <= 0) {
     return;
@@ -44,9 +50,11 @@ function printUserScore(score, isActive, user) {
   console.log(`User: ${user.name} Score: ${score}`);
 }
 ```
+
 The cleaner version is easier to understand because it uses descriptive names, clear formatting, and simpler control flow. The early returns reduce nesting, and the purpose of the function is more obvious at a glance.
 
 ## Reflection
+
 Clean code matters in real-world development because software is maintained by teams over long periods of time. Code that is simple, readable, maintainable, consistent, and efficient is easier to review, debug, and improve. Writing clean code is not only about making the program work, but also about making it easier for people to understand and work with in the future.
 
 # Naming Variables & Functions
@@ -56,6 +64,7 @@ Clean code matters in real-world development because software is maintained by t
 Clear naming is an important part of clean code because names are the first thing developers read when trying to understand code.
 
 Good naming practices include:
+
 - Use descriptive and meaningful names.
 - Avoid vague abbreviations unless they are very common and obvious.
 - Use names that explain the purpose of the variable or function.
@@ -77,7 +86,8 @@ function a(x, y) {
 let d = a(5, 10);
 console.log(d);
 ```
-This code is difficult to understand because the function name a does not explain what the function does, and the variable names x, y, z, and d do not describe their purpose. A developer reading this code has to guess the meaning of each value instead of understanding it immediately.
+
+This code is difficult to understand because the function name `a` does not explain what the function does, and the variable names `x`, `y`, `z`, and `d` do not describe their purpose. A developer reading this code has to guess the meaning of each value instead of understanding it immediately.
 
 ### Refactored code
 ```javascript
@@ -89,9 +99,11 @@ function calculateArea(width, height) {
 const rectangleArea = calculateArea(5, 10);
 console.log(rectangleArea);
 ```
-The refactored version is easier to read because the names clearly describe the purpose of the function and variables. calculateArea explains the function’s action, while width, height, area, and rectangleArea make the data much easier to understand.
+
+The refactored version is easier to read because the names clearly describe the purpose of the function and variables. `calculateArea` explains the function’s action, while `width`, `height`, `area`, and `rectangleArea` make the data much easier to understand.
 
 ## Reflection
+
 ### What makes a good variable or function name?
 
 A good variable or function name is descriptive, clear, and easy for another developer to understand. It should communicate purpose without needing extra explanation.
@@ -107,10 +119,10 @@ Refactoring improved readability by replacing vague names with meaningful ones, 
 # Writing Small, Focused Functions
 
 ## Best Practices
+
 Small, focused functions are easier to read, test, and maintain because each function has a single clear responsibility. A good function should do one thing, have a clear name, and avoid mixing unrelated logic in one place.
 
 ## Example of a Long, Complex Function
-
 ```javascript
 function processOrder(order) {
   if (!order) {
@@ -143,6 +155,7 @@ function processOrder(order) {
   console.log("Total:", total);
 }
 ```
+
 This function does too many things at once: it validates the order, calculates the total, applies a discount, decides shipping, and prints output. Because all responsibilities are combined into one function, the code is harder to read, test, and modify.
 
 ## Refactored function
@@ -193,6 +206,7 @@ function processOrder(order) {
 ```
 
 ## Reflection
+
 ### Why is breaking down functions beneficial?
 
 Breaking down functions is beneficial because it makes code easier to understand, test, reuse, and maintain. Smaller functions also reduce complexity and make debugging easier because each function has a clear purpose.
@@ -204,10 +218,10 @@ Refactoring improved the structure by separating validation, calculation, discou
 # Avoiding Code Duplication
 
 ## The DRY Principle
+
 The "Don't Repeat Yourself" (DRY) principle means that the same logic should not be repeated in multiple places in a codebase. When code is duplicated, any future update must be made in every repeated section, which increases the risk of bugs and inconsistency.
 
 ## Example of Duplicated Code
-
 ```javascript
 function printAdmin(user) {
   console.log("Name:", user.name);
@@ -221,6 +235,7 @@ function printCustomer(user) {
   console.log("Role: Customer");
 }
 ```
+
 This code repeats the same logic for printing the user's name and email. The only real difference is the role. If the output format needs to change later, both functions would need to be updated, which makes maintenance harder and increases the chance of mistakes.
 
 ## Refactored version
@@ -241,6 +256,7 @@ function printCustomer(user) {
 ```
 
 ## Reflection
+
 ### What were the issues with duplicated code?
 
 Duplicated code makes maintenance more difficult because the same change has to be made in multiple places. It also increases the chance of inconsistency if one section is updated but another is forgotten.
@@ -252,10 +268,10 @@ Refactoring improved maintainability by moving the shared logic into a single re
 # Commenting & Documentation
 
 ## Best Practices
+
 Comments and documentation should make the code easier to understand, not harder. Good comments explain the reason behind a decision, important context, assumptions, edge cases, or warnings that are not obvious from reading the code itself.
 
 ## Example of Poorly Commented Code
-
 ```javascript
 // set x to 5
 const x = 5;
@@ -269,6 +285,7 @@ for (let i = 0; i < users.length; i++) {
   }
 }
 ```
+
 These comments are not useful because they only repeat what the code already clearly shows. They add noise instead of providing helpful context.
 
 ## Improved version
@@ -282,9 +299,11 @@ for (let i = 0; i < users.length; i++) {
   }
 }
 ```
+
 The improved comment explains why the logic exists instead of repeating what the code is doing. This gives future developers useful context that might not be obvious from the code alone.
 
 ## Reflection
+
 ### When should you add comments?
 
 Comments should be added when code needs extra context, such as explaining why a decision was made, describing assumptions, warning about tricky behavior, or documenting important business rules.
@@ -296,10 +315,10 @@ Comments should be avoided when they only restate obvious code. In those cases, 
 # Handling Errors & Edge Cases
 
 ## Best Practices
+
 Reliable code should not assume that input is always valid. Good error handling checks inputs early, uses guard clauses to exit invalid cases quickly, and returns or throws clear errors when something goes wrong.
 
 ## Example of Weak Error Handling
-
 ```javascript
 function calculateAverage(numbers) {
   let total = 0;
@@ -311,17 +330,15 @@ function calculateAverage(numbers) {
   return total / numbers.length;
 }
 ```
+
 This function assumes that:
 
-`numbers` always exists
+- `numbers` always exists
+- `numbers` is always an array
+- the array is never empty
+- every value is a valid number
 
-`numbers` is always an array
-
-the `array` is never empty
-
-every value is a valid number
-
-If any of these assumptions are wrong, the function may return incorrect results such as NaN, divide by zero, or fail at runtime.
+If any of these assumptions are wrong, the function may return incorrect results such as `NaN`, divide by zero, or fail at runtime.
 
 ## Refactored version with Guard Clauses
 ```javascript
@@ -349,7 +366,9 @@ function calculateAverage(numbers) {
   return total / numbers.length;
 }
 ```
+
 ## Reflection
+
 ### What was the issue with the original code?
 
 The original code did not validate inputs or handle edge cases such as missing data, empty arrays, or invalid values. Because of that, it could fail silently or return incorrect results.
@@ -361,7 +380,9 @@ Handling errors improves reliability by making invalid inputs fail clearly and p
 # Refactoring Code for Simplicity
 
 ## Common Refactoring Techniques
+
 Common refactoring techniques include:
+
 - breaking large functions into smaller ones
 - removing unnecessary variables or conditions
 - replacing nested logic with guard clauses
@@ -372,7 +393,6 @@ Common refactoring techniques include:
 The goal of refactoring is to make code easier to read and maintain without changing its behavior.
 
 ## Example of Overly Complicated Code
-
 ```javascript
 function getDiscount(price, isMember, hasCoupon) {
   let discount = 0;
@@ -398,6 +418,7 @@ function getDiscount(price, isMember, hasCoupon) {
   return discount;
 }
 ```
+
 The original code is more complex than necessary because it uses multiple layers of nested `if` statements for a simple decision. This makes the logic harder to follow and increases the effort needed to understand or update the function.
 
 ## Refactored version
@@ -422,7 +443,9 @@ function getDiscount(price, isMember, hasCoupon) {
   return 0;
 }
 ```
+
 ## Reflection
+
 ### What made the original code complex?
 
 The original code was complex because it used unnecessary nesting and repeated assignments, which made a simple set of rules harder to understand.
@@ -438,18 +461,18 @@ Refactoring improved the code by using guard clauses and simpler conditions, whi
 Code smells are warning signs in code that suggest poor design, low readability, or maintainability problems. They do not always mean the code is broken, but they often indicate that refactoring is needed.
 
 Common code smells include:
-- Magic Numbers & Strings
-- Long Functions
-- Duplicate Code
-- Large Classes (God Objects)
-- Deeply Nested Conditionals
-- Commented-Out Code
-- Inconsistent Naming
+
+- Magic numbers and strings
+- Long functions
+- Duplicate code
+- Large classes (god objects)
+- Deeply nested conditionals
+- Commented-out code
+- Inconsistent naming
 
 ---
 
 ## Example of Code Smells
-
 ```javascript
 class AppManager {
   constructor() {
@@ -498,42 +521,40 @@ function calc(a, b) {
   return a * b * 0.15 + 99;
 }
 ```
-Problems in the Original Code
-1. Magic Numbers & Strings
 
-- `"NEW"`
+### Problems in the Original Code
 
-- `100`
+1. Magic numbers and strings
+   - `"NEW"`
+   - `100`
+   - `0.15`
+   - `99`
 
-- `0.15`
+   These values are hardcoded, so their meaning is unclear.
 
-- `99`
+2. Long function
 
-These values are hardcoded, so their meaning is unclear.
+   `processOrder()` handles multiple responsibilities such as checking discounts, printing messages, and saving orders.
 
-2. Long Function
+3. Duplicate code
 
-`processOrder()` handles multiple responsibilities such as checking discounts, printing messages, and saving orders.
+   `printAdmin()` and `printCustomer()` repeat the same logic.
 
-3. Duplicate Code
+4. Large class (god object)
 
-`printAdmin()` and `printCustomer()` repeat the same logic.
+   `AppManager` handles users, orders, and printing responsibilities all in one class.
 
-4. Large Class (God Object)
+5. Deeply nested conditionals
 
-`AppManager` handles users, orders, and printing responsibilities all in one class.
+   The discount logic inside `processOrder()` uses multiple nested `if` statements, making it difficult to read.
 
-5. Deeply Nested Conditionals
+6. Commented-out code
 
-The discount logic inside `processOrder()` uses multiple nested `if` statements, making it difficult to read.
+   The old unused code adds clutter and should be removed.
 
-6. Commented-Out Code
+7. Inconsistent naming
 
-The old unused code adds clutter and should be removed.
-
-7. Inconsistent Naming
-
-Names like `u`, `a`, `b`, and `calc` are unclear and do not describe their purpose.
+   Names like `u`, `a`, `b`, and `calc` are unclear and do not describe their purpose.
 
 ## Refactored version
 ```javascript
@@ -590,7 +611,9 @@ class OrderManager {
   }
 }
 ```
+
 ## Reflection
+
 ### What code smells did you find in your code?
 
 The code contained several code smells, including magic numbers and strings, a long function, duplicate code, a large class with too many responsibilities, deeply nested conditionals, commented-out code, and inconsistent naming.
@@ -606,9 +629,11 @@ Avoiding code smells makes debugging easier because the code becomes more struct
 # Writing Unit Tests for Clean Code
 
 ## Why unit testing is important
+
 Unit tests help developers verify that small pieces of code behave as expected. They make code safer to change because problems can be detected quickly when new changes break existing functionality.
 
 ## Testing Framework Chosen
+
 For this task, I used **Jest**, which is a popular JavaScript testing framework.
 
 ## Example Function
@@ -639,8 +664,9 @@ function calculateAverage(numbers) {
 
 module.exports = calculateAverage;
 ```
+
 ## Example Unit Tests
-``` javascript
+```javascript
 const calculateAverage = require("./calculateAverage");
 
 test("returns the average of valid numbers", () => {
@@ -655,55 +681,87 @@ test("throws an error for invalid input", () => {
   expect(() => calculateAverage("not an array")).toThrow("numbers must be an array");
 });
 ```
-## Reflection 
+
+## Reflection
+
 ### How do unit tests help keep code clean?
 
 Unit tests help keep code clean because they encourage smaller, focused, and predictable functions that are easier to test. They also make refactoring safer because developers can quickly check whether the behavior of the code is still correct.
 
 ### What issues did you find while testing?
 
-While testing, I found that functions need clear input validation and predictable behavior to be tested properly. This showed me that writing tests can reveal missing error handling and edge cases that might otherwise be overlooked.
+While testing, I found that functions need clear input validation and predictable behavior to be tested properly. This showed that writing tests can reveal missing error handling and edge cases that might otherwise be overlooked.
 
 # Code Formatting & Style Guides
 
 ## Why consistent code style matters
+
 Consistent code style is important because it makes code easier to read, review, and maintain across a team. When formatting and style are predictable, developers can focus more on the logic of the code instead of being distracted by inconsistent spacing, naming, or structure.
 
 ## Airbnb JavaScript Style Guide
+
 The Airbnb JavaScript Style Guide is a widely used set of JavaScript coding conventions. It emphasizes readability, consistency, clear naming, use of `const` and `let` instead of `var`, and writing code in a predictable and maintainable way.
 
 ## ESLint and Prettier
+
 To support consistent code style, I installed:
+
 - **ESLint** to detect style issues, possible mistakes, and patterns that do not match the configured rules.
 - **Prettier** to automatically format code into a consistent style.
 
 ## What issues did the linter detect?
+
 The linter can detect issues such as inconsistent formatting, unused variables, missing semicolons depending on configuration, and patterns that do not follow the chosen style guide. These issues are useful because they highlight parts of the code that may reduce readability or cause mistakes later.
 
 ## Did formatting the code make it easier to read?
+
 Yes, formatting made the code easier to read because spacing, indentation, and structure became more consistent. This made functions and logic easier to scan and understand.
 
 ## Reflection
 
 ### Why is code formatting important?
+
 Code formatting is important because it improves readability, reduces confusion, and helps teams follow a shared standard. It also makes code reviews easier because developers can focus on the quality of the logic rather than formatting differences.
 
 ### What issues did the linter detect?
+
 The linter detected style-related issues and code patterns that did not follow the expected conventions. These kinds of issues are useful to catch early because they help maintain consistency and improve overall code quality.
 
 ### Did formatting the code make it easier to read?
+
 Yes, formatting the code made it easier to read because the structure became more consistent and predictable. Clean formatting helps developers understand code more quickly and work with it more confidently.
 
-# CI/CD Reflection
+# CI/CD and Pull Request Guidelines
 
-## What is the purpose of CI/CD?
-CI/CD helps automate important development tasks such as testing, linting, and deployment so that code can be checked consistently before it is merged or released. This improves reliability, reduces manual work, and helps teams detect problems early.
+## Purpose of CI/CD
 
-## How does automating style checks improve project quality?
-Automating style checks improves project quality by enforcing consistent formatting, catching Markdown issues, and identifying spelling mistakes before they are merged into the project. This makes documentation cleaner and easier for the whole team to maintain.
+CI/CD helps automate development tasks such as installing dependencies, running tests, linting, building, and deploying. Automated checks ensure code is validated consistently before it is merged or released, improving reliability and reducing manual errors.
 
-## What are some challenges with enforcing checks in CI/CD?
-One challenge is that strict checks can sometimes block progress for small issues such as minor spelling mistakes or formatting differences. Another challenge is configuring the tools correctly so they match the project’s needs and do not create too many false positives.
+## Automating Style and Spell Checks
 
-## How do CI/CD pipelines differ between small projects and large teams?
-In small projects, CI/CD pipelines are usually simpler and may only run basic linting or tests. In large teams, pipelines are often more advanced and include multiple stages such as linting, unit tests, integration tests, security scans, and deployment workflows.
+Automating style and spell checks (via ESLint, Prettier, markdownlint, and spellcheck actions) improves project quality by enforcing consistent formatting and catching documentation issues early.
+
+## Common CI/CD Challenges
+
+- Strict checks can block progress for small issues; configure rules to balance quality and developer velocity.
+- Tool configuration must match project needs to reduce false positives.
+- CI runtime and resource limits may require splitting jobs or caching dependencies.
+
+## How CI/CD pipelines differ by team size
+
+- Small projects: simple pipelines (install, lint, test).
+- Large teams: multi-stage pipelines (lint, unit tests, integration tests, security scans, build, deploy).
+
+## Push & Pull Request Checklist (for this repo)
+
+- Run tests locally: npm test or yarn test
+- Run linter and formatter: npm run lint and npm run format
+- Run markdownlint and spell check locally if configured
+- Add or update unit tests for changed behavior
+- Rebase or merge main to resolve conflicts before push
+- Create a descriptive PR title and body
+  - Include what changed and why
+  - Link related issues
+  - List manual testing steps if needed
+- Ensure CI passes (lint, tests, build) before merging
+- Use squash merge or clean commit history per repository convention
