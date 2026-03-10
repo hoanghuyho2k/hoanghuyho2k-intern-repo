@@ -313,11 +313,11 @@ function calculateAverage(numbers) {
 ```
 This function assumes that:
 
-numbers always exists
+`numbers` always exists
 
-numbers is always an array
+`numbers` is always an array
 
-the array is never empty
+the `array` is never empty
 
 every value is a valid number
 
@@ -357,3 +357,76 @@ The original code did not validate inputs or handle edge cases such as missing d
 ### How does handling errors improve reliability?
 
 Handling errors improves reliability by making invalid inputs fail clearly and predictably instead of causing hidden bugs or confusing output. Guard clauses also make the code easier to read because invalid cases are handled early and the main logic stays simple.
+
+# Refactoring Code for Simplicity
+
+### Common Refactoring Techniques
+Common refactoring techniques include:
+- breaking large functions into smaller ones
+- removing unnecessary variables or conditions
+- replacing nested logic with guard clauses
+- renaming unclear variables and functions
+- eliminating duplicated code
+- simplifying conditional statements
+
+The goal of refactoring is to make code easier to read and maintain without changing its behavior.
+
+### Example of Overly Complicated Code
+
+```javascript
+function getDiscount(price, isMember, hasCoupon) {
+  let discount = 0;
+
+  if (price > 0) {
+    if (isMember === true) {
+      if (hasCoupon === true) {
+        discount = price * 0.2;
+      } else {
+        discount = price * 0.1;
+      }
+    } else {
+      if (hasCoupon === true) {
+        discount = price * 0.05;
+      } else {
+        discount = 0;
+      }
+    }
+  } else {
+    discount = 0;
+  }
+
+  return discount;
+}
+```
+The original code is more complex than necessary because it uses multiple layers of nested `if` statements for a simple decision. This makes the logic harder to follow and increases the effort needed to understand or update the function.
+
+### Refactored version
+```javascript
+function getDiscount(price, isMember, hasCoupon) {
+  if (price <= 0) {
+    return 0;
+  }
+
+  if (isMember && hasCoupon) {
+    return price * 0.2;
+  }
+
+  if (isMember) {
+    return price * 0.1;
+  }
+
+  if (hasCoupon) {
+    return price * 0.05;
+  }
+
+  return 0;
+}
+```
+## Reflection
+### What made the original code complex?
+
+The original code was complex because it used unnecessary nesting and repeated assignments, which made a simple set of rules harder to understand.
+
+### How did refactoring improve it?
+
+Refactoring improved the code by using guard clauses and simpler conditions, which made the function shorter, easier to read, and easier to maintain.
