@@ -1,4 +1,4 @@
-// ...existing code...
+
 # Understanding Clean Code Principles
 
 Clean code is important because software is rarely written once and never touched again. In real projects, code is read, debugged, extended, and reviewed by many people over time, so code quality affects both development speed and long-term maintainability.
@@ -26,6 +26,7 @@ Efficiency means writing code that performs well enough for the problem being so
 # Example of Messy Code
 
 ## Messy Code
+
 ```javascript
 function p(a,b,c){if(a>0){if(b==true){if(c!=null){console.log("User: "+c.name+" Score: "+a)}}}}
 ```
@@ -33,6 +34,7 @@ function p(a,b,c){if(a>0){if(b==true){if(c!=null){console.log("User: "+c.name+" 
 This code is difficult to read because it uses unclear variable names, multiple nested conditions, inconsistent comparison operators, and no spacing or structure. It is hard to understand what the function is trying to do, and future developers would need extra time to work out the logic.
 
 ## Cleaner version
+
 ```javascript
 function printUserScore(score, isActive, user) {
   if (score <= 0) {
@@ -77,6 +79,7 @@ For example, `calculateTotalPrice()` is much clearer than `doCalc()`, and `userE
 ## Example of Unclear Naming
 
 ### Unclear Code
+
 ```javascript
 function a(x, y) {
   let z = x * y;
@@ -90,6 +93,7 @@ console.log(d);
 This code is difficult to understand because the function name `a` does not explain what the function does, and the variable names `x`, `y`, `z`, and `d` do not describe their purpose. A developer reading this code has to guess the meaning of each value instead of understanding it immediately.
 
 ### Refactored code
+
 ```javascript
 function calculateArea(width, height) {
   const area = width * height;
@@ -123,6 +127,7 @@ Refactoring improved readability by replacing vague names with meaningful ones, 
 Small, focused functions are easier to read, test, and maintain because each function has a single clear responsibility. A good function should do one thing, have a clear name, and avoid mixing unrelated logic in one place.
 
 ## Example of a Long, Complex Function
+
 ```javascript
 function processOrder(order) {
   if (!order) {
@@ -159,6 +164,7 @@ function processOrder(order) {
 This function does too many things at once: it validates the order, calculates the total, applies a discount, decides shipping, and prints output. Because all responsibilities are combined into one function, the code is harder to read, test, and modify.
 
 ## Refactored function
+
 ```javascript
 function isValidOrder(order) {
   return order && order.items && order.items.length > 0;
@@ -222,6 +228,7 @@ Refactoring improved the structure by separating validation, calculation, discou
 The "Don't Repeat Yourself" (DRY) principle means that the same logic should not be repeated in multiple places in a codebase. When code is duplicated, any future update must be made in every repeated section, which increases the risk of bugs and inconsistency.
 
 ## Example of Duplicated Code
+
 ```javascript
 function printAdmin(user) {
   console.log("Name:", user.name);
@@ -239,6 +246,7 @@ function printCustomer(user) {
 This code repeats the same logic for printing the user's name and email. The only real difference is the role. If the output format needs to change later, both functions would need to be updated, which makes maintenance harder and increases the chance of mistakes.
 
 ## Refactored version
+
 ```javascript
 function printUser(user, role) {
   console.log("Name:", user.name);
@@ -272,6 +280,7 @@ Refactoring improved maintainability by moving the shared logic into a single re
 Comments and documentation should make the code easier to understand, not harder. Good comments explain the reason behind a decision, important context, assumptions, edge cases, or warnings that are not obvious from reading the code itself.
 
 ## Example of Poorly Commented Code
+
 ```javascript
 // set x to 5
 const x = 5;
@@ -289,6 +298,7 @@ for (let i = 0; i < users.length; i++) {
 These comments are not useful because they only repeat what the code already clearly shows. They add noise instead of providing helpful context.
 
 ## Improved version
+
 ```javascript
 // Only display active users because inactive accounts should not appear in the admin report.
 const maxLoginAttempts = 5;
@@ -319,6 +329,7 @@ Comments should be avoided when they only restate obvious code. In those cases, 
 Reliable code should not assume that input is always valid. Good error handling checks inputs early, uses guard clauses to exit invalid cases quickly, and returns or throws clear errors when something goes wrong.
 
 ## Example of Weak Error Handling
+
 ```javascript
 function calculateAverage(numbers) {
   let total = 0;
@@ -341,6 +352,7 @@ This function assumes that:
 If any of these assumptions are wrong, the function may return incorrect results such as `NaN`, divide by zero, or fail at runtime.
 
 ## Refactored version with Guard Clauses
+
 ```javascript
 function calculateAverage(numbers) {
   if (!Array.isArray(numbers)) {
@@ -393,6 +405,7 @@ Common refactoring techniques include:
 The goal of refactoring is to make code easier to read and maintain without changing its behavior.
 
 ## Example of Overly Complicated Code
+
 ```javascript
 function getDiscount(price, isMember, hasCoupon) {
   let discount = 0;
@@ -422,6 +435,7 @@ function getDiscount(price, isMember, hasCoupon) {
 The original code is more complex than necessary because it uses multiple layers of nested `if` statements for a simple decision. This makes the logic harder to follow and increases the effort needed to understand or update the function.
 
 ## Refactored version
+
 ```javascript
 function getDiscount(price, isMember, hasCoupon) {
   if (price <= 0) {
@@ -473,6 +487,7 @@ Common code smells include:
 ---
 
 ## Example of Code Smells
+
 ```javascript
 class AppManager {
   constructor() {
@@ -557,6 +572,7 @@ function calc(a, b) {
    Names like `u`, `a`, `b`, and `calc` are unclear and do not describe their purpose.
 
 ## Refactored version
+
 ```javascript
 const ORDER_STATUS_NEW = "NEW";
 const DISCOUNT_THRESHOLD = 100;
