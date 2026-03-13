@@ -14,11 +14,11 @@ I used Cursor for the following tasks during the onboarding process:
 
 I used Cursor to help understand parts of the repository structure and files in the project. By asking questions about the code and project setup, Cursor helped explain what certain files and commands were doing.
 
-2. **Debugging and explaining Git issues**
+1. **Debugging and explaining Git issues**
 
 While working with Git commands such as merging branches, resolving conflicts, and fixing push errors, I used Cursor to help explain error messages and understand what the correct commands should be.
 
-3. **Writing documentation**
+1. **Writing documentation**
 
 Cursor also helped generate explanations and documentation for some of the markdown files required in the onboarding tasks. It was useful for drafting structured explanations that I could then review and adjust.
 
@@ -28,7 +28,7 @@ Cursor also helped generate explanations and documentation for some of the markd
 
 Cursor was particularly helpful for:
 
-- Explaining Git commands and error messages**
+- Explaining Git commands and error messages\*\*
 - Understanding the structure of the project repository
 - Generating documentation drafts
 - Speeding up repetitive writing tasks

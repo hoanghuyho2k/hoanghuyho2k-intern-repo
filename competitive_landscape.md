@@ -1,6 +1,8 @@
+
 # Research Assignment: Competitive Landscape
 
 ## Apps Compared
+
 - Focus Bear
 - Freedom
 - Cold Turkey
@@ -9,7 +11,7 @@
 
 ---
 
-# 1. What makes Focus Bear different from these apps?
+## 1. What makes Focus Bear different from these apps?
 
 Focus Bear is different because it combines **three important productivity functions into one system**:
 
@@ -20,6 +22,7 @@ Focus Bear is different because it combines **three important productivity funct
 Many productivity apps focus on only **one area**.
 
 For example:
+
 - **Freedom** and **Cold Turkey** mainly focus on blocking distracting websites and apps.
 - **Tiimo** focuses on planning and scheduling tasks, especially for people with ADHD.
 - **Routinery** focuses on building daily routines and habits.
@@ -30,13 +33,14 @@ Another important difference is that Focus Bear is designed with **neurodivergen
 
 ---
 
-# 2. If you were a user, why would you choose Focus Bear over competitors?
+## 2. If you were a user, why would you choose Focus Bear over competitors?
 
 If I were a user, I would choose Focus Bear because it provides **both structure and distraction control**.
 
 Many people struggle with productivity not just because of distractions, but because of **task initiation and maintaining routines**.
 
 Focus Bear helps by:
+
 - blocking distracting apps and websites
 - guiding users through routines step by step
 - encouraging healthy breaks
@@ -48,7 +52,7 @@ This makes it especially useful for users who need **external structure to stay 
 
 ---
 
-# 3. What’s one feature that other apps have that Focus Bear doesn’t?
+## 3. What’s one feature that other apps have that Focus Bear doesn’t?
 
 One feature that competitors such as **Cold Turkey** offer is **extremely strict blocking controls**.
 
@@ -60,13 +64,14 @@ For some users who want a very strict environment, this could be a missing featu
 
 ---
 
-# 4. Based on your research, what’s one improvement Focus Bear could make?
+## 4. Based on your research, what’s one improvement Focus Bear could make?
 
 One improvement Focus Bear could make is adding **a more visual planning interface for daily schedules**.
 
 Apps like **Tiimo** provide a very clear visual timeline that shows tasks and activities throughout the day. This helps users better understand how their time is structured.
 
 If Focus Bear added a **visual daily schedule or timeline**, it could help users:
+
 - plan their day more clearly
 - understand how routines fit into their schedule
 - transition between tasks more easily
@@ -75,11 +80,12 @@ Combining **Focus Bear’s distraction blocking and routines** with a **visual p
 
 ---
 
-# Conclusion
+## Conclusion
 
 Focus Bear stands out because it tries to solve productivity problems from multiple angles: blocking distractions, supporting routines, and encouraging healthy habits.
 
 However, competitors still offer strong individual features, such as:
+
 - stricter blocking systems
 - visual task planning
 - specialized routine tracking

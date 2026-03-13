@@ -1,8 +1,10 @@
+
 # VS Code Productivity Shortcuts
 
 ## Top 10 Useful Shortcuts
 
 ### Navigation
+
 1. **Command Palette** — `⇧⌘P`  
    Quickly access commands, settings, extensions, and actions.
 
@@ -13,31 +15,34 @@
    Useful for jumping to functions, classes, or methods inside a file.
 
 ### Editing
-4. **Add Multiple Cursors** — `⌥⌘↓` / `⌥⌘↑`  
+
+1. **Add Multiple Cursors** — `⌥⌘↓` / `⌥⌘↑`  
    This is one of the most useful shortcuts because it allows editing multiple lines at once.
 
-5. **Format Document** — `⇧⌥F`  
+2. **Format Document** — `⇧⌥F`  
    Automatically formats code and keeps it clean and readable.
 
-6. **Rename Symbol** — `F2`  
+3. **Rename Symbol** — `F2`  
    Renames variables, functions, or classes consistently across the code.
 
-7. **Delete Line** — `⇧⌘K`  
+4. **Delete Line** — `⇧⌘K`  
    A fast way to remove a line without selecting it manually.
 
-8. **Copy Line Up / Down** — `⇧⌥↓` / `⇧⌥↑`  
+5. **Copy Line Up / Down** — `⇧⌥↓` / `⇧⌥↑`  
    Very useful when duplicating code or text quickly.
 
 ### Debugging
-9. **Start / Continue Debugging** — `F5`  
+
+1. **Start / Continue Debugging** — `F5`  
    Useful for running and testing code during development.
 
-10. **Step Over** — `F10`  
-   Helps move through code one line at a time during debugging.
+2. **Step Over** — `F10`  
+    Helps move through code one line at a time during debugging.
 
 ### Terminal Commands
-11. **Toggle Integrated Terminal** — ``⌃` ``  
-   Opens or closes the terminal inside VS Code quickly.
+
+1. **Toggle Integrated Terminal** — ``⌃` ``  
+    Opens or closes the terminal inside VS Code quickly.
 
 ---
 

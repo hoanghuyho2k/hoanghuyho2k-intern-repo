@@ -1,29 +1,38 @@
+
 # CI/CD and Pull Request Guidelines
 
 ## Purpose of CI/CD
 
-CI/CD helps automate development tasks such as installing dependencies, running tests, linting, building, and deploying. Automated checks ensure code is validated consistently before it is merged or released, improving reliability and reducing manual errors.
+CI/CD automates development tasks such as installing dependencies, running tests, linting, building, and deploying. Automated checks validate code consistently before merge or release, improving reliability and reducing manual errors.
 
-## Automating Style and Spell Checks
+## Automating style and spell checks
 
-Automating style and spell checks (via ESLint, Prettier, markdownlint, and spellcheck actions) improves project quality by enforcing consistent formatting and catching documentation issues early.
+Automate style and spelling checks (ESLint, Prettier, markdownlint, cspell or repo spellcheck action) to enforce consistent formatting and catch documentation issues early.
 
-## Common CI/CD Challenges
+Recommended local commands
 
-- Strict checks can block progress for small issues; configure rules to balance quality and developer velocity.
+- npm test
+- npm run lint
+- npm run format
+- npx markdownlint-cli2 "**/*.md"
+- npx cspell "**/*.{md,js,ts,json}"
+
+## Common CI/CD challenges
+
+- Strict checks can block progress; configure rules to balance quality and velocity.
 - Tool configuration must match project needs to reduce false positives.
-- CI runtime and resource limits may require splitting jobs or caching dependencies.
+- CI runtime and resource limits may require splitting jobs, caching dependencies, or using job matrix.
 
 ## How CI/CD pipelines differ by team size
 
-- Small projects: simple pipelines (install, lint, test).
-- Large teams: multi-stage pipelines (lint, unit tests, integration tests, security scans, build, deploy).
+- Small projects: simple pipeline (install, lint, test).
+- Large teams: multi-stage pipeline (lint, unit tests, integration tests, security scans, build, deploy).
 
-## Push & Pull Request Checklist (for this repo)
+## Push & pull request checklist (for this repo)
 
 - Run tests locally: npm test or yarn test
 - Run linter and formatter: npm run lint and npm run format
-- Run markdownlint and spell check locally if configured
+- Run markdownlint and spell check locally: npx markdownlint-cli2 and npx cspell (or repo-equivalent)
 - Add or update unit tests for changed behavior
 - Rebase or merge main to resolve conflicts before push
 - Create a descriptive PR title and body

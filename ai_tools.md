@@ -15,6 +15,7 @@ I also looked into Claude AI as another AI assistant that can help with programm
 One thing that worked well was using AI to explain technical problems clearly. For example, when I encountered Git errors such as authentication problems or merge conflicts, the AI helped break down the error messages and guide me step-by-step toward a solution.
 
 AI was also useful for:
+
 - explaining Git concepts like rebase, merge conflicts, and branch management
 - helping generate example commands
 - clarifying development workflows

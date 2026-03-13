@@ -1,3 +1,4 @@
+
 # What Do You Want to Learn & Contribute?
 
 ## 1. What do you hope to learn from this internship?
@@ -7,8 +8,6 @@ During this internship, I hope to gain practical experience working on a real so
 I am especially interested in learning how production-level backend applications are structured, how APIs are designed, and how developers collaborate using tools such as Git, issue tracking, and code reviews.
 
 This internship is also an opportunity for me to learn industry best practices and improve my ability to write clean, maintainable, and well-tested code.
-
----
 
 ## 2. What skills are you most excited to develop?
 
@@ -22,8 +21,6 @@ The main skills I am excited to develop include:
 
 I am also interested in learning more about how backend services integrate with frontend applications and how real-world software systems are deployed and maintained.
 
----
-
 ## 3. What do you think you can contribute to the team?
 
 I believe I can contribute to the team through my strong willingness to learn and my commitment to improving my technical skills.
@@ -32,15 +29,11 @@ I am motivated, detail-oriented, and open to feedback. I will actively try to un
 
 I can contribute by helping implement features, fixing bugs, improving documentation, and supporting the development process while continuously improving my skills.
 
----
-
 ## 4. What is one area you feel less confident in that you’d like to improve?
 
 One area I would like to improve is my experience working with large-scale backend systems and real-world production codebases.
 
 While I have learned programming concepts and built projects during my studies, working in a professional development environment is different. I want to improve my ability to understand existing codebases, debug complex problems, and follow best practices used by experienced engineers.
-
----
 
 ## 5. What does success in this internship look like for you?
 

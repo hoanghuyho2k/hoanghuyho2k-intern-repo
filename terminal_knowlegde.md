@@ -1,3 +1,4 @@
+
 # Terminal Client Setup & Command Line Reflection
 
 ## Which terminal client did you choose? Why?
@@ -24,6 +25,7 @@ One of the most useful commands I used today was:
 git status
 
 This command shows the current state of the repository, including:
+
 - which branch I am on
 - whether my branch is up to date with the remote repository
 - which files have been modified or staged
