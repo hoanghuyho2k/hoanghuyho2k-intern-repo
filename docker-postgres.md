@@ -1,7 +1,7 @@
 
 # Running PostgreSQL in Docker
 
-## Running PostgreSQL in Docker
+## Running Postgre SQL in Docker
 
 PostgreSQL can be run in Docker by using the official `postgres` image from Docker Hub. This makes it possible to start a database quickly without installing PostgreSQL directly on the host machine. Docker’s official Postgres image is designed for this exact use case, and Docker’s guides also show using Postgres for local development. :contentReference[oaicite:0]{index=0}
 
@@ -88,4 +88,3 @@ Docker volumes store PostgreSQL data outside the container itself, so the data r
 How can you connect to a running PostgreSQL container?
 
 We can connect to a running PostgreSQL container using a database client such as `psql` or pgAdmin by using the mapped port and database credentials, or by opening a shell inside the container with `docker exec`.
-
