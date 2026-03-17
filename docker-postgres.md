@@ -1,9 +1,9 @@
 
 # Running PostgreSQL in Docker
 
-## Running Postgre SQL in Docker
+## Running PostgreSQL
 
-PostgreSQL can be run in Docker by using the official `postgres` image from Docker Hub. This makes it possible to start a database quickly without installing PostgreSQL directly on the host machine. Docker’s official Postgres image is designed for this exact use case, and Docker’s guides also show using Postgres for local development. :contentReference[oaicite:0]{index=0}
+PostgreSQL can be run in Docker by using the official `postgres` image from Docker Hub. This makes it possible to start a database quickly without installing PostgreSQL directly on the host machine. Docker’s official Postgres image is designed for this exact use case, and Docker’s guides also show using Postgres for local development.
 
 ### Example `docker-compose.yml`
 
