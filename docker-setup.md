@@ -65,6 +65,7 @@ To stop all services:
 ```
 
 ## Reflection 
+
 What is the difference between docker run and docker-compose up?
 
 `docker run` is used to start a single container manually, while `docker compose up` starts multiple containers defined in a configuration file.
