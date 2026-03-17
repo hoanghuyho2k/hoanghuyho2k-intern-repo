@@ -52,16 +52,19 @@ Docker Compose is used to run multiple containers together using a single config
 
 Instead of starting each service manually, I can run:
 
+```bash
 `docker compose up`
+```
 
 This will start all services (e.g., backend API, database, Redis) at once.
 
 To stop all services: 
 
+```bash
 `docker compose down`
+```
 
 ## Reflection 
-
 What is the difference between docker run and docker-compose up?
 
 `docker run` is used to start a single container manually, while `docker compose up` starts multiple containers defined in a configuration file.
@@ -77,5 +80,3 @@ The command `docker logs <container>` is used to view logs. With Docker Compose,
 What happens when you restart a container? Does data persist?
 
 Restarting a container does not guarantee data persistence unless volumes are used. Without volumes, data inside the container may be lost when it is removed.
-
-
