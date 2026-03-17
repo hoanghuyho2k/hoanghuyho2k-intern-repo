@@ -58,13 +58,13 @@ Instead of starting each service manually, I can run:
 
 This will start all services (e.g., backend API, database, Redis) at once.
 
-To stop all services: 
+To stop all services:
 
 ```bash
 `docker compose down`
 ```
 
-## Reflection 
+## Reflection
 
 What is the difference between docker run and docker-compose up?
 
