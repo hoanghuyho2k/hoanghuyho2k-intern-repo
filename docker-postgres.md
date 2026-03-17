@@ -62,11 +62,11 @@ Example using psql:
 psql -h localhost -p 5432 -U postgres -d focusbear_dev
 ```
 
-### Volumn and Data Persistence
+### Volume and Data Persistence
 
 Docker volumes are important because PostgreSQL stores its database files inside the container. If no named volume is mounted, recreating the container can result in data not being reused. Docker’s official Postgres image specifically notes that persistent database data should be mounted at `/var/lib/postgresql/data`, and Docker’s volume docs explain that named volumes are reused across restarts and later `docker compose up` runs.
 
-With the Named Volumn:
+With the Named Volume:
 
 ```yaml
 volumes:

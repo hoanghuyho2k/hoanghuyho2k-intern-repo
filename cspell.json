@@ -12,6 +12,9 @@
     "ColdTurkey",
     "neurotypical",
     "hoanghuyho"
+    "Postgre",
+    "oaicite",
+    "psql"
   ],
   "ignorePaths": [
     "node_modules",
