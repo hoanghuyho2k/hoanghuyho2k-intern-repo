@@ -3,6 +3,7 @@
   "language": "en",
   "words": [
     "FocusBear",
+    "focusbear",
     "NestJS",
     "markdownlint",
     "Husky",
@@ -11,7 +12,8 @@
     "Routinery",
     "ColdTurkey",
     "neurotypical",
-    "hoanghuyho"
+    "hoanghuyho",
+    "psql"
   ],
   "ignorePaths": [
     "node_modules",
