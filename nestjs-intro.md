@@ -5,7 +5,7 @@
 
 NestJS is a progressive Node.js framework used for building scalable and maintainable backend applications. It is built on top of Express (or optionally Fastify) and uses TypeScript by default.
 
-NestJS follows a structured and opinionated architecture inspired by frameworks like Angular, which helps developers organise code more effectively in large applications.
+NestJS follows a structured and opinionated architecture inspired by frameworks like Angular, which helps developers organize code more effectively in large applications.
 
 ## NestJS vs Express.js
 
@@ -19,7 +19,7 @@ NestJS applications are built using three main components:
 
 ### Modules
 
-Modules are used to organise the application into logical groups. Each module groups related functionality together.
+Modules are used to organize the application into logical groups. Each module groups related functionality together.
 
 Example:
 
@@ -105,8 +105,8 @@ Decorators allow NestJS to define routes, dependencies, and metadata in a clear 
 
 How does NestJS handle dependency injection?
 
-NestJS uses a built-in dependency injection system that automatically provides required services to classes, reducing manual object creation and improving code organisation.
+NestJS uses a built-in dependency injection system that automatically provides required services to classes, reducing manual object creation and improving code organization.
 
 What benefits does modular architecture provide in a large-scale app?
 
-Modular architecture helps organise code into smaller, reusable units, making the application easier to scale, maintain, and understand as it grows.
+Modular architecture helps organize code into smaller, reusable units, making the application easier to scale, maintain, and understand as it grows.
