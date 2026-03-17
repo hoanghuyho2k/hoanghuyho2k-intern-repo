@@ -1,0 +1,21 @@
+{
+  "version": "0.2",
+  "language": "en",
+  "words": [
+    "FocusBear",
+    "NestJS",
+    "markdownlint",
+    "Husky",
+    "Cursor",
+    "Tiimo",
+    "Routinery",
+    "ColdTurkey",
+    "neurotypical",
+    "hoanghuyho"
+  ],
+  "ignorePaths": [
+    "node_modules",
+    ".git",
+    "package-lock.json"
+  ]
+}
