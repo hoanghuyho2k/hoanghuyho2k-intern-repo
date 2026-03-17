@@ -88,7 +88,7 @@ docker compose up -d
 
 Docker documents that docker compose up builds, creates, and starts services, while docker compose down stops and removes containers and networks created by Compose. By default, named volumes are not removed unless explicitly requested.
 
-### Data Persistenece ans Volumes
+### Data Persistence ans Volumes
 
 Docker documents that docker compose up builds, creates, and starts services, while docker compose down stops and removes containers and networks created by Compose. By default, named volumes are not removed unless explicitly requested.
 
