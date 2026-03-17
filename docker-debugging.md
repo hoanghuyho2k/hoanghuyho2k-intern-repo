@@ -109,4 +109,3 @@ You restart the container with `docker restart` or `docker compose down && docke
 How can you troubleshoot database connection issues inside a containerized NestJS app?
 
 Start by checking whether both the NestJS app and PostgreSQL containers are running with `docker ps`, then inspect logs with `docker logs` or `docker compose logs`. Verify the database host, port, username, password, and database name, and make sure the app uses the correct hostname for its environment—for example, a Compose service name when both services are inside Docker, rather than `localhost`. You can also enter the app container with `docker exec -it` to inspect environment variables and test connectivity from inside the container.
-
