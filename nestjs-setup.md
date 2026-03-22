@@ -133,7 +133,7 @@ export class AppService {
 }
 ```
 
-When access to http://localhost:3000
+When access to <http://localhost:3000>
 
 We should see:
 
