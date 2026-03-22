@@ -100,7 +100,7 @@ It:
 
 Registers controllers and services
 
-Organises application structure
+Organizes application structure
 
 Connects different parts of the app together
 
