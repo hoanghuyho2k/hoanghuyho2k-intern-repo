@@ -66,7 +66,7 @@ This means developers do not need to manually create instances of services.
 
 NestJS supports different provider scopes that control how instances are created.
 
-1. Singleton (Default)
+Singleton (Default)
 One shared instance for the entire application
 Most commonly used
 Efficient for performance
@@ -78,7 +78,7 @@ Example:
 export class UserService {}
 ```
 
-2. Request Scope
+Request Scope
 A new instance is created for each incoming request
 Useful when handling request-specific data (e.g., user session)
 
@@ -89,7 +89,7 @@ Example:
 export class RequestService {}
 ```
 
-3. Transient Scope
+Transient Scope
 A new instance is created every time it is injected
 Useful for lightweight, stateless operations
 
