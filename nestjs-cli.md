@@ -3,7 +3,7 @@
 
 ## What is the NestJS CLI?
 
-The NestJS CLI is a command-line tool that helps developers create, build, and maintain NestJS applications. It can scaffold projects and generate application components such as modules, controllers, and services in a consistent structure. Nest’s official CLI docs describe it as a tool to initialize, develop, and maintain Nest applications. :contentReference[oaicite:0]{index=0}
+The NestJS CLI is a command-line tool that helps developers create, build, and maintain NestJS applications. It can scaffold projects and generate application components such as modules, controllers, and services in a consistent structure. Nest’s official CLI docs describe it as a tool to initialize, develop, and maintain Nest applications.
 
 ## Using the CLI to Generate Files
 
