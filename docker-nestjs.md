@@ -102,7 +102,7 @@ Docker Compose is designed for defining and running multi-container applications
 To start both containers:
 
 ```bash
-docker compse up -d
+docker compose up -d
 ```
 
 To check running containers:
