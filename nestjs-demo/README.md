@@ -51,7 +51,7 @@ npm run test:cov
 
 ## Deployment
 
-When you're ready to deploy a NestJS application to production, see the official deployment documentation: https://docs.nestjs.com/deployment
+When you're ready to deploy a NestJS application to production, see the official deployment documentation: (https://docs.nestjs.com/deployment)
 
 Example using the NestJS Mau CLI:
 
@@ -62,24 +62,24 @@ mau deploy
 
 ## Resources
 
-- NestJS Documentation: https://docs.nestjs.com
-- Discord: https://discord.gg/G7Qnnhy
-- Official video courses: https://courses.nestjs.com/
-- NestJS Mau (deploy to AWS): https://mau.nestjs.com
-- NestJS Devtools: https://devtools.nestjs.com
-- Enterprise support: https://enterprise.nestjs.com
-- Jobs board: https://jobs.nestjs.com
-- Follow on X: https://x.com/nestframework
-- LinkedIn: https://linkedin.com/company/nestjs
+- NestJS Documentation: (https://docs.nestjs.com)
+- Discord: (https://discord.gg/G7Qnnhy)
+- Official video courses: (https://courses.nestjs.com/)
+- NestJS Mau (deploy to AWS): (https://mau.nestjs.com)
+- NestJS Devtools: (https://devtools.nestjs.com)
+- Enterprise support: (https://enterprise.nestjs.com)
+- Jobs board: (https://jobs.nestjs.com)
+- Follow on X: (https://x.com/nestframework)
+- LinkedIn: (https://linkedin.com/company/nestjs)
 
 ## Support
 
-Nest is an MIT-licensed open source project. It grows thanks to sponsors and backers. Learn how to support NestJS: https://docs.nestjs.com/support
+Nest is an MIT-licensed open source project. It grows thanks to sponsors and backers. Learn how to support NestJS: (https://docs.nestjs.com/support)
 
 ## Stay in touch
 
-- Author: Kamil Myśliwiec — https://twitter.com/kammysliwiec
-- Website: https://nestjs.com
+- Author: Kamil Myśliwiec — (https://twitter.com/kammysliwiec)
+- Website: (https://nestjs.com)
 
 ## License
 
