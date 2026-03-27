@@ -8,11 +8,11 @@ In NestJS, middleware and interceptors both let you handle cross-cutting concern
 - **Middleware** runs before the route handler and has direct access to the raw request, response, and `next()` function. It is useful for tasks such as logging, authentication preprocessing, and request mutation.
 - **Interceptors** wrap the execution of the route handler. They can run logic both before and after the handler, transform returned data, map exceptions, and measure execution time.
 
-NestJS documents middleware as functions or classes that run before the route handler, and documents interceptors as classes implementing `NestInterceptor` that can add logic before/after method execution and transform responses or exceptions. :contentReference[oaicite:0]{index=0}
+NestJS documents middleware as functions or classes that run before the route handler, and documents interceptors as classes implementing `NestInterceptor` that can add logic before/after method execution and transform responses or exceptions.
 
 ## Built-in Interceptors
 
-NestJS includes useful built-in interceptors such as `ClassSerializerInterceptor`, which serializes class instances returned from handlers using `class-transformer`. This is especially useful for hiding fields like passwords or controlling what gets exposed in API responses. :contentReference[oaicite:1]{index=1}
+NestJS includes useful built-in interceptors such as `ClassSerializerInterceptor`, which serializes class instances returned from handlers using `class-transformer`. This is especially useful for hiding fields like passwords or controlling what gets exposed in API responses.
 
 Example:
 
