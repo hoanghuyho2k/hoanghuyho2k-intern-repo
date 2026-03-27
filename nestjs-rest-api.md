@@ -3,7 +3,7 @@
 
 ## REST APIs in NestJS
 
-NestJS structures REST APIs mainly through **controllers** and **services**. According to the NestJS docs, controllers are responsible for handling incoming requests and returning responses, while decorators such as `@Get()` define which HTTP method and route are mapped to each handler. :contentReference[oaicite:0]{index=0}
+NestJS structures REST APIs mainly through **controllers** and **services**. According to the NestJS docs, controllers are responsible for handling incoming requests and returning responses, while decorators such as `@Get()` define which HTTP method and route are mapped to each handler.
 
 A simple REST API usually includes routes such as:
 
