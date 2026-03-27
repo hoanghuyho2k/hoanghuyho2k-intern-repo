@@ -9,5 +9,7 @@ test("throws an error for an empty array", () => {
 });
 
 test("throws an error for invalid input", () => {
-  expect(() => calculateAverage("not an array")).toThrow("numbers must be an array");
+  expect(() => calculateAverage("not an array")).toThrow(
+    "numbers must be an array",
+  );
 });
