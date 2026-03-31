@@ -1,48 +1,40 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
+import { Task } from './tasks/task.entity';
 
 @Injectable()
 export class TasksService {
-  private tasks = [
-    { id: 1, title: 'Learn NestJS' },
-    { id: 2, title: 'Build REST API' },
-  ];
+  constructor(
+    @InjectRepository(Task)
+    private readonly taskRepository: Repository<Task>,
+  ) {}
 
   findAll() {
-    return this.tasks;
+    return this.taskRepository.find();
   }
 
   findOne(id: number) {
-    return this.tasks.find((task) => task.id === id);
+    return this.taskRepository.findOneBy({ id });
   }
 
   create(title: string) {
-    const newTask = {
-      id: this.tasks.length + 1,
-      title,
-    };
-
-    this.tasks.push(newTask);
-    return newTask;
+    const task = this.taskRepository.create({ title });
+    return this.taskRepository.save(task);
   }
 
-  update(id: number, title: string) {
-    const task = this.tasks.find((item) => item.id === id);
+  async update(id: number, title: string) {
+    await this.taskRepository.update(id, { title });
+    return this.taskRepository.findOneBy({ id });
+  }
 
-    if (!task) {
-      return { message: 'Task not found' };
+  async remove(id: number) {
+    const task = await this.taskRepository.findOneBy({ id });
+
+    if (task) {
+      await this.taskRepository.remove(task);
     }
 
-    task.title = title;
     return task;
-  }
-
-  remove(id: number) {
-    const index = this.tasks.findIndex((task) => task.id === id);
-
-    if (index === -1) {
-      return { message: 'Task not found' };
-    }
-
-    return this.tasks.splice(index, 1)[0];
   }
 }
