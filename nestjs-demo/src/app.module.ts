@@ -13,7 +13,7 @@ import { Task } from './tasks/task.entity';
       password: 'postgres',
       database: 'focusbear_dev',
       entities: [Task],
-      synchronize: true,
+      synchronize: false,
     }),
     TasksModule,
   ],
