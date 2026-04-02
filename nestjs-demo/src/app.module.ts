@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { BullModule } from '@nestjs/bullmq';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { TasksModule } from './tasks.module';
 import { Task } from './tasks/task.entity';
@@ -14,6 +15,12 @@ import { Task } from './tasks/task.entity';
       database: 'focusbear_dev',
       entities: [Task],
       synchronize: false,
+    }),
+    BullModule.forRoot({
+      connection: {
+        host: 'localhost',
+        port: 6379,
+      },
     }),
     TasksModule,
   ],
