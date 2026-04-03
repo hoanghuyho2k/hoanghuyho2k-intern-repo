@@ -257,7 +257,7 @@ What I did:
 I used:
 
 ```bash
-git log --oneline --decorate --graph -10
+git log --online --decorate --graph -10
 ```
 
 Example output:
