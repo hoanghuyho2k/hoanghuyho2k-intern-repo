@@ -889,7 +889,7 @@ After applying ESLint and Prettier:
 
 Code became more consistent and readable
 
-Indentation and spacing were standardised
+Indentation and spacing were standardized
 
 Functions became easier to understand
 
