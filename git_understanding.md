@@ -1,106 +1,158 @@
 
-# Merge Conflicts & Conflict Resolution
+# Debug with `git bisect`
 
-## What caused the conflict?
+## Debugging with `git bisect` – Practical Evidence
 
-The conflict occurred because the same line in duplicate-repo/README.md was edited differently on two branches (main and task/merge-conflict). During merge, Git could not automatically determine which change to keep.
+### Test Scenario I Created
 
-## How did you resolve it?
+To practice `git bisect`, I created a simple JavaScript file called `bisect_test.js` and made a series of commits in my test branch.
 
-I opened the conflicted file, reviewed the “current” (main) and “incoming” (task branch) changes, removed the conflict markers, and wrote the final intended content. Then I staged the resolved file and committed the merge resolution.
+#### Commit history used for the test
 
-## What did you learn?
+```bash
+7418e64 Add extra output to buggy test
+debeef5 Introduce bug in bisect test
+71eefbf Update output message in bisect test
+5a07ab6 Add working bisect test file
+```
 
-- Merge conflicts happen when two branches modify the same lines/sections.
-- Git requires manual resolution when it cannot safely auto-merge.
-- After resolving, you must stage the file and commit to complete the merge.
+What I changed in each commit
+1. 5a07ab6 – Add working bisect test file
+Created a working version of the file:
 
-## Pull Requests (PRs)
+```javascript
+function add(a, b) {
+  return a + b;
+}
 
-### Why are PRs important in a team workflow?
+console.log(add(2, 3));
+```
 
-Pull requests are important because they give team members a structured way to review, discuss, and improve changes before merging them into the main branch. They help maintain code quality, reduce mistakes, and make collaboration more transparent.
+2. 71eefbf – Update output message in bisect test
+Changed the output text, but the logic still worked correctly:
 
-### What makes a well-structured PR?
+```javascript
+function add(a, b) {
+  return a + b;
+}
 
-A well-structured PR should have a clear title, a short explanation of what changed and why, and only include focused changes that are easy to review. It is also helpful to link the PR to a related issue and provide enough context for reviewers.
+console.log("Result:", add(2, 3));
+```
 
-### What did you learn from reviewing an open-source PR?
+3. debeef5 – Introduce bug in bisect test
+Introduced the bug by changing addition to subtraction:
 
-From reviewing an open-source PR, I learned that good code review is not only about checking whether code works, but also about readability, maintainability, and clear communication. I also noticed that reviewers often give specific, constructive feedback and contributors respond by updating the code or explaining their decisions.
+```javascript
+function add(a, b) {
+  return a - b;
+}
 
-## Writing Meaningful Commit Messages
+console.log("Result:", add(2, 3));
+```
 
-### What makes a good commit message?
+4. 7418e64 – Add extra output to buggy test
+Added another line while the bug was still present:
 
-A good commit message should clearly describe what change was made and why it was made. It should be concise, informative, and easy for other developers to understand when reviewing the project history.
+```javascript
+console.log("Buggy version still active");
+```
 
-### How does a clear commit message help in team collaboration?
+## Using `git bisect`
 
-Clear commit messages help team members understand what changes were introduced in each commit without needing to read all the code. This makes it easier to review pull requests, track changes, and debug issues.
+I use `git bisect` to identify which commit introduced the bug:
 
-### How can poor commit messages cause issues later?
+Commands I run:
 
-Poor commit messages such as "fix" or "update" do not explain what was changed. This can make it difficult for developers to understand the history of the project, identify when bugs were introduced, or track the purpose of specific changes.
+```bash
+git bisect start
+git bisect bad
+git bisect good 5a07ab6
+```
 
-## Debugging with git bisect
+At this point, Git checked out one of the middle commits for testing.
 
-### What does git bisect do?
+I then inspected the file and marked each checked-out revision as good or bad.
 
-git bisect helps identify which commit introduced a bug by using a binary search through the commit history. Instead of checking every commit manually, it narrows the search range step by step until it finds the first bad commit.
+Example command output
 
-### When would you use it in a real-world debugging situation?
+```bash
+git bisect start
+status: waiting for both good and bad commits
 
-I would use git bisect when a project worked correctly before, but now has a bug and I do not know which commit caused it. It is especially useful when there are many commits and manually checking each one would take too much time.
+git bisect bad
+status: waiting for good commit(s), bad commit known
 
-### How does it compare to manually reviewing commits?
+git bisect good 5a07ab6
+Bisecting: 0 revisions left to test after this (roughly 1 step)
+[debeef53e5496c5b195c753e44b1fe31a9050fba] Introduce bug in bisect test
+```
 
-git bisect is much faster and more efficient than manually reviewing commits one by one because it reduces the number of commits that need to be tested. Manual review can still be useful for understanding the code, but git bisect is better for quickly locating the exact commit that introduced the problem.
+I checked the code:
 
-## Advanced Git Commands
+```javascript
+function add(a, b) {
+  return a - b;
+}
 
-### What does each command do?
+console.log("Result:", add(2, 3));
+```
 
-- `git checkout main -- <file>` restores a specific file from the `main` branch without changing other files.
-- `git cherry-pick <commit>` applies one specific commit from another branch onto the current branch.
-- `git log` shows the history of commits and how the project changed over time.
-- `git blame <file>` shows which commit last modified each line of a file.
+Since this version was buggy, I marked it as bad:
 
-### When would you use it in a real project?
+```bash
+git bisect bad
+```
 
-- I would use `git checkout main -- <file>` when one file has unwanted local changes and I want to restore only that file.
-- I would use `git cherry-pick` when I need one useful fix from another branch but do not want to merge the entire branch.
-- I would use `git log` to understand project history, investigate when changes happened, or review branch activity.
-- I would use `git blame` when debugging or when I need to understand who changed a line and why.
+Git then moved to previous commit:
 
-### What surprised you while testing these commands?
+```bash
+Bisecting: 0 revisions left to test after this (roughly 0 steps)
+[71eefbf9c656ab4de39000ac4c74f2c2ca991d9b] Update output message in bisect test
+```
 
-What surprised me most was how targeted these commands are. Instead of merging or reverting large sets of changes, Git allows developers to restore one file, copy one commit, inspect history clearly, and trace changes line by line, which is very useful in large team projects.
+I checked the file again:
 
-## Branching & Team Collaboration
+```javascript
+function add(a, b) {
+  return a + b;
+}
 
-### Why is pushing directly to main problematic?
+console.log("Result:", add(2, 3));
+```
 
-Pushing directly to main is problematic because it can introduce bugs or incomplete work into the main codebase without review. It also makes collaboration riskier because there is less opportunity to catch mistakes before changes affect everyone.
+This version was working, so I marked it as good:
 
-### How do branches help with reviewing code?
+```bash
+git bisect good
+```
 
-Branches allow developers to work on changes separately from the stable main branch. This makes it easier to open pull requests, review code, discuss improvements, and test changes before merging them.
+## Final result from git
 
-### What happens if two people edit the same file on different branches?
+```bash
+debeef53e5496c5b195c753e44b1fe31a9050fba is the first bad commit
+commit debeef53e5496c5b195c753e44b1fe31a9050fba
+Author: Huy Ho <huybm27@gmail.com>
+Date:   Sun Mar 8 15:05:29 2026 +1100
 
-If two people edit the same file on different branches, Git may produce a merge conflict when the branches are merged. The conflict must then be resolved manually by deciding which changes to keep or how to combine them.
+    Introduce bug in bisect test
+```
 
-## Git Concepts: Staging vs Committing
+After finishing, I returned to my branch with:
 
-### What is the difference between staging and committing?
+```bash
+git bisect reset
+```
 
-Staging is the process of selecting which changes will be included in the next commit, while committing saves those staged changes permanently to the repository history.
+## Reflection
 
-### Why does Git separate these two steps?
+What does `git bisect` do?
 
-Git separates staging and committing so developers can carefully choose which changes should be included in a commit. This helps keep commits clean, meaningful, and organized.
+`git bisect` helps identify which commit introduced a bug by using a binary search through the commit history. Instead of checking every commit manually, it narrows the search range step by step until it finds the first bad commit.
 
-### When would you want to stage changes without committing?
+When would you use it in a real-world debugging situation?
 
-You might stage changes without committing when you are preparing multiple edits but want to group them into logical commits. Staging allows you to review and organize the exact changes that will be recorded before creating the commit.
+I would use `git bisect` when a project worked correctly before, but now has a bug and I do not know which commit caused it. It is especially useful when there are many commits and manually checking each one would take too much time.
+
+How does it compare to manually reviewing commits?
+
+`git bisect` is much faster and more efficient than manually reviewing commits one by one because it reduces the number of commits that need to be tested. Manual review can still be useful for understanding the code, but `git bisect` is better for quickly locating the exact commit that introduced the problem.
