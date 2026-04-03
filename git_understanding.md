@@ -156,3 +156,166 @@ I would use `git bisect` when a project worked correctly before, but now has a b
 How does it compare to manually reviewing commits?
 
 `git bisect` is much faster and more efficient than manually reviewing commits one by one because it reduces the number of commits that need to be tested. Manual review can still be useful for understanding the code, but `git bisect` is better for quickly locating the exact commit that introduced the problem.
+
+## Advanced Git Commands – Practical Evidence
+
+### Commands I tested
+
+For this task, I experimented with the following Git commands in my test repository:
+
+- `git checkout main -- <file>`
+- `git cherry-pick <commit>`
+- `git log`
+- `git blame <file>`
+
+### Testing `git checkout main -- <file>`
+
+#### What I did
+
+I created a file called `advanced_git_test.txt` and committed it on `main`:
+
+```bash
+echo "origin line" > advanced_git_test.txt
+git add advanced_git_test.txt
+git commit -m "Add test file to main"
+```
+
+Then I switched to my branch and changed the file:
+
+```bash
+echo "changed line" > advanced_git_test.txt
+cat advanced_git_test.txt
+```
+
+Output:
+
+`change line`
+
+After that, I restored the file from main using:
+
+```bash
+git checkout main -- advanced_git_test.txt
+cat advanced_git_test.txt
+```
+
+Output:
+
+`origin line`
+
+What I learned
+
+This command restored only that specific file from main without affecting other files or changes in the branch. It is useful when one file has unwanted changes and I want to bring back the clean version from another branch.
+
+### Testing git cherry-pick <commit>
+
+What I did
+
+I created a branch called feature/cherry-pick-demo and added a file:
+
+```bash
+echo "line from cherry-pick demo" > cherry_pick_demo.txt
+git add cherry_pick_demo.txt
+git commit -m "Add cherry-pick demo file"
+```
+
+Then I checked the most recent commit hash:
+
+```bash
+git log --online -1
+```
+
+Output:
+
+```bash
+9d7cf81 Add cherry-pick demo file
+```
+
+Then I switched back to main and applied only that commit:
+
+```bash
+git checkout main
+git cherry-pick 9d7cf81
+```
+
+Output:
+
+```bash
+[main d1e8fbe] Add cherry-pick demo file
+ Date: Sun Mar 8 17:02:29 2026 +1100
+ 1 file changed, 1 insertion(+)
+ create mode 100644 cherry_pick_demo.txt
+ ```
+
+What I learned
+
+`git cherry-pick` let me copy one specific commit from another branch without merging the whole branch. This is useful when only one fix or feature is needed from a branch.
+
+### Test git log
+
+What I did:
+
+I used:
+
+```bash
+git log --oneline --decorate --graph -10
+```
+
+Example output:
+
+```bash
+* d1e8fbe (HEAD -> main) Add cherry-pick demo file
+* f16ca63 Add test file to main
+*   95328b1 (origin/main, origin/HEAD) Merge pull request #79 from hoanghuyho2k/task/pr-practice
+|\  
+| * cfd2c5f Add section on Pull Requests in git_understanding.md
+| * 32fda72 (origin/task/pr-practice) Update git_understanding with PR reflections
+* | 62f7ece Merge pull request #78 from hoanghuyho2k/task/vscode-productivity
+```
+
+What I learned
+
+`git log` helped me understand how the commit history evolved, which branches were merged, and which commit was currently checked out. The graph view made branch history easier to understand.
+
+### Test git blame <file>
+
+WHat I did
+
+I used:
+
+```bash
+git blame git_understanding.md
+```
+
+Example output:
+
+```bash
+98ab1eba (Huy Ho       2026-03-05 15:25:37 +1100  1) # Merge Conflicts & Conflict Resolution
+736fd89d (Huy Ho       2026-03-05 15:56:42 +1100  4) The conflict occurred because the same line in duplicate-repo/README.md was edited differently on two branches
+cfd2c5f4 (hoanghuyho2k 2026-03-08 14:24:25 +1100 14) ## Pull Requests (PRs)
+```
+
+## Reflection for Advanced Git Commands
+
+What does each command do?
+
+`git checkout main -- <file>` restores a specific file from the main branch without affecting other files.
+
+`git cherry-pick <commit>` applies one specific commit from another branch onto the current branch.
+
+`git log` shows commit history and how the project changed over time.
+
+`git blame <file>` shows which commit last modified each line of a file.
+
+When would you use these in a real project?
+
+I would use `git checkout main -- <file>` when I want to discard unwanted changes in one file and restore the known-good version from main.
+
+I would use `git cherry-pick` when I need one useful fix from another branch without merging unrelated changes.
+
+I would use `git log` to understand project history, review how features evolved, or investigate when a problem was introduced.
+
+I would use git blame when debugging code or when I need to know who changed a specific line and in which commit.
+
+What surprised me while testing these commands?
+
+What surprised me most was how targeted these commands are. Instead of merging or reverting many changes at once, Git allows developers to restore one file, copy one commit, inspect project history clearly, and trace line-by-line changes. These commands would be very useful in large projects with multiple developers.
