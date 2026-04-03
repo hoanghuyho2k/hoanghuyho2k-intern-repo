@@ -1,6 +1,8 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { BullModule } from '@nestjs/bullmq';
 import { TypeOrmModule } from '@nestjs/typeorm';
+import { AuthModule } from './auth/auth.module';
+import { MockUserMiddleware } from './auth/mock-user.middleware';
 import { TasksModule } from './tasks.module';
 import { Task } from './tasks/task.entity';
 
@@ -23,6 +25,11 @@ import { Task } from './tasks/task.entity';
       },
     }),
     TasksModule,
+    AuthModule,
   ],
 })
-export class AppModule {}
+export class AppModule implements NestModule {
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(MockUserMiddleware).forRoutes('*');
+  }
+}
