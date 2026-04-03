@@ -169,10 +169,10 @@ Test endpoint:
 curl http://localhost:3000/admin
 ```
 
-Expected ouput:
+Expected output:
 
 ```bash
-{"messgae":"Admin access granted"}
+{"message":"Admin access granted"}
 ```
 
 ### Test forbidden case
