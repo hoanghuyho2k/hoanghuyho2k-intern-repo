@@ -30,6 +30,11 @@ export class TasksController {
     return this.tasksService.create(body.title);
   }
 
+  @Post('queue')
+  addToQueue(@Body() body: CreateTaskDto) {
+    return this.tasksService.addBackgroundTask(body.title);
+  }
+
   @Put(':id')
   update(
     @Param('id', ParseIntPipe) id: number,

@@ -1,5 +1,7 @@
 import { Injectable } from '@nestjs/common';
+import { InjectQueue } from '@nestjs/bullmq';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Queue } from 'bullmq';
 import { Repository } from 'typeorm';
 import { Task } from './tasks/task.entity';
 
@@ -8,6 +10,8 @@ export class TasksService {
   constructor(
     @InjectRepository(Task)
     private readonly taskRepository: Repository<Task>,
+    @InjectQueue('tasks')
+    private readonly tasksQueue: Queue,
   ) {}
 
   findAll() {
@@ -36,5 +40,21 @@ export class TasksService {
     }
 
     return task;
+  }
+
+  async addBackgroundTask(title: string) {
+    await this.tasksQueue.add(
+      'create-task',
+      { title },
+      {
+        attempts: 3,
+        backoff: {
+          type: 'fixed',
+          delay: 1000,
+        },
+      },
+    );
+
+    return { message: 'Task added to background queue' };
   }
 }
