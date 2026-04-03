@@ -1,3 +1,4 @@
+
 # AI Tools for Development
 
 ## Which AI tools did you try?
@@ -8,7 +9,9 @@ I also researched GitHub Copilot, which is an AI coding assistant integrated dir
 
 I also looked into Claude AI as another AI assistant that can help with programming questions and explanations.
 
----
+Scrennshot:
+
+![alt text](image.png)
 
 ## What worked well? What didn’t?
 
@@ -24,8 +27,6 @@ However, AI is not perfect. Sometimes the instructions need to be adjusted based
 
 Because of this, I found that AI works best when used as a learning assistant, not as a replacement for understanding the code or the tools being used.
 
----
-
 ## When do you think AI is most useful for coding?
 
 I think AI is most useful in the following situations:
@@ -36,8 +37,6 @@ I think AI is most useful in the following situations:
 - Understanding unfamiliar code – AI can help explain what certain parts of code are doing.
 
 However, developers should still review and understand the code themselves because AI-generated suggestions may not always be correct or optimized.
-
----
 
 ## Conclusion
 
