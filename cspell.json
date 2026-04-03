@@ -17,7 +17,8 @@
     "Kamil",
     "Myśliwiec",
     "kammysliwiec",
-    "psql"
+    "psql",
+    "bullmq"
   ],
   "ignorePaths": [
     "node_modules",
