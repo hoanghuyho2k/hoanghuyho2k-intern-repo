@@ -9,10 +9,6 @@ I also researched GitHub Copilot, which is an AI coding assistant integrated dir
 
 I also looked into Claude AI as another AI assistant that can help with programming questions and explanations.
 
-Scrennshot:
-
-![alt text](image.png)
-
 ## What worked well? What didn’t?
 
 One thing that worked well was using AI to explain technical problems clearly. For example, when I encountered Git errors such as authentication problems or merge conflicts, the AI helped break down the error messages and guide me step-by-step toward a solution.
