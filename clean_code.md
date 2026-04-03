@@ -783,3 +783,138 @@ Automating style and spell checks (via ESLint, Prettier, markdownlint, and spell
   - List manual testing steps if needed
 - Ensure CI passes (lint, tests, build) before merging
 - Use squash merge or clean commit history per repository convention
+
+## Code Formatting & Style Guides – Practical Evidence
+
+### ESLint and Prettier Setup
+
+I installed ESLint and Prettier in my project using the following commands:
+
+```bash
+npm install --save-dev eslint prettier @eslint/js globals
+npm init @eslint/config
+```
+
+I configured ESLint using eslint.config.mjs and installed Prettier for automatic formatting.
+
+### Running ESLint
+
+I run ESLint on the project:
+
+```bash
+npx eslint .
+```
+
+Example output:
+
+```bash
+calculateAverage.test.js
+  3:1  error  'test' is not defined    no-undef
+  4:3  error  'expect' is not defined  no-undef
+```
+
+Issue Identified
+
+ESLint flagged Jest globals (test, expect) as undefined.
+This showed that ESLint was working but needed proper environment configuration.
+
+Fix Applied
+
+I updated ESLint configuration to include Jest globals:
+
+```javascript
+languageOptions: {
+  globals: {
+    ...globals.browser,
+    ...globals.jest,
+  },
+},
+```
+
+After fixing:
+
+```bash
+npx eslint .
+```
+
+Output:
+
+```bash
+no problems found
+```
+
+### Running Prettier
+
+I ran Prettier to format the code:
+
+```bash
+npx prettier --write
+```
+
+Example changes
+
+Before formatting:
+
+```bash
+function p(a,b,c){if(a>0){if(b==true){if(c!=null){console.log("User: "+c.name+" Score: "+a)}}}}
+```
+
+After formatting:
+
+```bash
+function printUserScore(score, isActive, user) {
+  if (score <= 0) return;
+  if (!isActive) return;
+  if (!user) return;
+
+  console.log(`User: ${user.name} Score: ${score}`);
+}
+```
+
+#### Linter and Formatting Issue Found
+
+During this task, the tools detected:
+
+Undefined variables (test, expect)
+
+Inconsistent spacing and formatting
+
+Poor code readability due to nested conditions
+
+Missing structure and indentation
+
+#### Improvements after formatting
+
+After applying ESLint and Prettier:
+
+Code became more consistent and readable
+
+Indentation and spacing were standardised
+
+Functions became easier to understand
+
+Reduced complexity using cleaner formatting
+
+### Git Commit Evidence
+
+I committed and pushed the changes after fixing linting and formatting issues:
+
+```bash
+git add .
+git commit -m "Apply ESLint and Prettier fixes for code formatting"
+git push
+```
+
+### Reflection for Evidence of Clean Code
+
+Why is code formatting important?
+
+Code formatting is important because it improves readability, reduces confusion, and ensures consistency across a team. It helps developers understand code faster and reduces errors.
+
+What issues did the linter detect?
+
+The linter detected undefined variables, inconsistent formatting, and code patterns that did not follow best practices.
+
+Did formatting the code make it easier to read?
+
+Yes, formatting made the code significantly easier to read by improving structure, spacing, and clarity.
