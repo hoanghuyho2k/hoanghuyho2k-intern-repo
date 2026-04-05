@@ -18,7 +18,8 @@
     "Myśliwiec",
     "kammysliwiec",
     "psql",
-    "bullmq"
+    "bullmq",
+    "mysecretkey"
   ],
   "ignorePaths": [
     "node_modules",
