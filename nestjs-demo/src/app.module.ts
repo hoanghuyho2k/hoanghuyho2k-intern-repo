@@ -6,6 +6,7 @@ import * as Joi from 'joi';
 import { AuthModule } from './auth/auth.module';
 import { MockUserMiddleware } from './auth/mock-user.middleware';
 import { TasksModule } from './tasks.module';
+import { LoggerModule } from 'nestjs-pino';
 
 @Module({
   imports: [
@@ -34,6 +35,13 @@ import { TasksModule } from './tasks.module';
         autoLoadEntities: true,
         synchronize: false,
       }),
+    }),
+    LoggerModule.forRoot({
+      pinoHttp: {
+        transport: {
+        target: 'pino-pretty',
+        },
+      },
     }),
     BullModule.forRootAsync({
       inject: [ConfigService],
