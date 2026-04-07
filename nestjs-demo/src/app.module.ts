@@ -7,6 +7,7 @@ import { AuthModule } from './auth/auth.module';
 import { MockUserMiddleware } from './auth/mock-user.middleware';
 import { TasksModule } from './tasks.module';
 import { LoggerModule } from 'nestjs-pino';
+import { SecretNoteModule } from './secret-note/secret-note.module';
 
 @Module({
   imports: [
@@ -21,6 +22,7 @@ import { LoggerModule } from 'nestjs-pino';
         JWT_SECRET: Joi.string().required(),
         REDIS_HOST: Joi.string().required(),
         REDIS_PORT: Joi.number().required(),
+        ENCRYPTION_KEY: Joi.string().required(),
       }),
     }),
     TypeOrmModule.forRootAsync({
@@ -33,7 +35,7 @@ import { LoggerModule } from 'nestjs-pino';
         password: configService.get<string>('DATABASE_PASSWORD'),
         database: configService.get<string>('DATABASE_NAME'),
         autoLoadEntities: true,
-        synchronize: false,
+        synchronize: true,
       }),
     }),
     LoggerModule.forRoot({
@@ -54,6 +56,7 @@ import { LoggerModule } from 'nestjs-pino';
     }),
     TasksModule,
     AuthModule,
+    SecretNoteModule,
   ],
 })
 export class AppModule implements NestModule {
