@@ -19,7 +19,10 @@
     "kammysliwiec",
     "psql",
     "bullmq",
-    "mysecretkey"
+    "mysecretkey",
+    "nosniff",
+    "noopen",
+    "SAMEORIGIN"
   ],
   "ignorePaths": [
     "node_modules",
