@@ -14,7 +14,7 @@ npm install @nestjs/platform-fastify @fastify/helmet @fastify/rate-limit
 
 ## Register Helmet and rate limiting in main.ts
 
-For Fasify-based app:
+For Fastify-based app:
 
 ```typescript
 import { NestFactory } from '@nestjs/core';
@@ -83,7 +83,7 @@ Keep-Alive: timeout=72
 for i in {1..10}; do curl -s -o /dev/null -w "%{http_code}\n" http://localhost:3000/tasks; done
 ```
 
-Oupput of the test:
+Output of the test:
 
 ```bash
 200
@@ -112,7 +112,7 @@ Output:
 {"message":"Cannot GET /does-not-exist","error":"Not Found","statusCode":404}%
 ```
 
-## Confirm secrets are not commited
+## Confirm secrets are not committed
 
 Make sure .env does not appear:
 
@@ -128,7 +128,7 @@ Common vulnerabilities include injection attacks, poor authentication or authori
 
 How does @fastify/helmet improve application security?
 
-`@fastify/helmet` improves security by setting HTTP headers that help protect against common web vulnerabilities, such as clickjacking and some unsafe content-loading behavior. NestJS documents Helmet as an important protection layer for HTTP apps.
+`@fastify/helmet` improves security by setting HTTP headers that help protect against common web vulnerabilities, and some unsafe content-loading behavior. NestJS documents Helmet as an important protection layer for HTTP apps.
 
 Why is rate limiting important for preventing abuse?
 
