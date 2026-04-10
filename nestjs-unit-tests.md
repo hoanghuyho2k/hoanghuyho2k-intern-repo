@@ -37,7 +37,7 @@ describe('AppService', () => {
 
 ## Create a controller test using a mocked service
 
-app.controller.sepc.ts
+app.controller.spec.ts
 
 ```typescript
 import { Test, TestingModule } from '@nestjs/testing';
