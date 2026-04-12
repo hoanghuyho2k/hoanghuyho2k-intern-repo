@@ -17,7 +17,7 @@ Bruno supports creating a new collection directly in the app. The starter guide 
 
 Bruno lets you add request headers manually from the Headers tab. Its docs explain that you create a request, go to Headers, enter the header name and value, then save and execute the request. Bruno also supports auth configuration at collection, folder, and request levels, including OAuth 2.0.
 
-## Create a simple clollection
+## Create a simple collection
 
 ```bash
 FocusBear-NestJS
