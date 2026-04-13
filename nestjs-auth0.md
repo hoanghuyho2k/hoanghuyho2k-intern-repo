@@ -211,7 +211,7 @@ curl http://localhost:3000/admin
 Output:
 
 ```bash
-tonnuanhthu@Air-cua-Ton onboarding-backend-nest-js % curl http://localhost:3000/admin
+curl http://localhost:3000/admin
 {"message":"Admin access granted"}% 
 ```
 
