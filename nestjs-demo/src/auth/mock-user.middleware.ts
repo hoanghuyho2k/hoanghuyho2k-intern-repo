@@ -11,7 +11,7 @@ export class MockUserMiddleware implements NestMiddleware {
     req.user = {
       id: '123',
       email: 'admin@example.com',
-      roles: ['admin'],
+      roles: ['user'],
     };
 
     next();
