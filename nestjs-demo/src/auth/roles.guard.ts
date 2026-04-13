@@ -22,6 +22,14 @@ export class RolesGuard implements CanActivate {
     }
 
     const request = context.switchToHttp().getRequest();
+
+    // Temporary mock user for testing
+    request.user = {
+      id: '123',
+      email: 'admin@example.com',
+      roles: ['user'],
+    };
+
     const user = request.user;
 
     if (!user || !user.roles) {
@@ -31,7 +39,9 @@ export class RolesGuard implements CanActivate {
     const hasRole = requiredRoles.some((role) => user.roles.includes(role));
 
     if (!hasRole) {
-      throw new ForbiddenException('You do not have permission to access this resource');
+      throw new ForbiddenException(
+        'You do not have permission to access this resource',
+      );
     }
 
     return true;
