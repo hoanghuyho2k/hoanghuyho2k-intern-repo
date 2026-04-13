@@ -44,7 +44,7 @@ Good habits are essential for long-term comfort:
 
 I adjusted my workspace by raising my laptop to a higher position using a stand. This helped bring the screen closer to eye level and reduced neck strain. I also identified that using an external keyboard would further improve my posture and typing comfort.
 
-### Behaviour changes
+### Behavioural changes
 
 I made a conscious effort to sit upright instead of leaning forward. I also started taking short breaks regularly to stretch and move, which helped reduce stiffness and fatigue.
 

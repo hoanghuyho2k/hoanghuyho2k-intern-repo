@@ -23,6 +23,7 @@
     "nosniff",
     "noopen",
     "pgdg",
+    "Behavioural",
     "SAMEORIGIN"
   ],
   "ignorePaths": [
