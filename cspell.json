@@ -24,6 +24,8 @@
     "noopen",
     "pgdg",
     "Behavioural",
+    "Behaviour",
+    "behaviour",
     "SAMEORIGIN"
   ],
   "ignorePaths": [
